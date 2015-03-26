@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Xamarin.Forms;
+
+namespace Izmir
+{
+	public class App : Application
+	{
+		public App ()
+		{
+			var IzmirTabs = new TabbedPage ();
+			IzmirTabs.Children.Add (new HomePage {Title="Home", Icon = "xaml.png"});
+			IzmirTabs.Children.Add (new CommitteesPage {Title="Committees", Icon = "xaml.png"});
+			IzmirTabs.Children.Add (new SchedulePage {Title="Schedule", Icon = "xaml.png"});
+			IzmirTabs.Children.Add (new OtherPage {Title="Other", Icon = "xaml.png"});
+
+			MainPage = IzmirTabs;
+		}
+
+		protected override void OnStart ()
+		{
+			// Handle when your app starts
+		}
+
+		protected override void OnSleep ()
+		{
+			// Handle when your app sleeps
+		}
+
+		protected override void OnResume ()
+		{
+			// Handle when your app resumes
+		}
+	}
+}
+
