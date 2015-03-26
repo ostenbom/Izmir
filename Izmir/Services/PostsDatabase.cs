@@ -42,16 +42,18 @@ namespace Izmir
 			}
 		}
 
-		void UpdatePosts ()
+		public async void UpdatePosts ()
 		{
-			var cl = new PostClient();
-			var p = cl.GetPostsAsync();
+			var cl = new PostClient ();
+			var p = await cl.GetPostsAsync ();
 
 			if (p.Count () == 0)
 				return;
 			lock (locker) {
 				database.Execute ("delete from Post");
-				p.ForEach (x => database.Insert (x));
+				foreach (var a in p) {
+					database.Insert (a);
+				}
 			}
 		}
 	}
