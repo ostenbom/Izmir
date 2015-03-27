@@ -7,11 +7,19 @@ namespace Izmir
 {
 	public class HomePage : ContentPage
 	{
+		static PostsDatabase database;
+
+		public static PostsDatabase Database {
+			get { return database; }
+		}
+
 		ListView lv;
 		Label l;
 
 		public HomePage ()
 		{
+			Title = "Home";
+
 			l = new Label { Text = "Posts", Font = Font.BoldSystemFontOfSize(NamedSize.Large) };
 
 			var b = new Button { Text = "Get Posts" };

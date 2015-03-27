@@ -56,6 +56,12 @@ namespace Izmir
 				}
 			}
 		}
+
+		public List<Post> GetPosts() {
+			lock (locker) {
+				return database.Table<Post> ().ToList<Post> ();
+			}
+		}
 	}
 }
 

@@ -9,6 +9,7 @@ namespace Izmir
 	{
 		public CommitteesPage ()
 		{
+			Title = "Committees";
 			Resources = new ResourceDictionary {
 				{ "buttonStyle", new Style(typeof(Button))
 					{
@@ -48,7 +49,7 @@ namespace Izmir
 				new Command(async (obj) => 
 					{
 						var compage = new CommitteePage(obj as CommitteesItem);
-						await Navigation.PushModalAsync(compage);
+						await Navigation.PushAsync(compage);
 					});
 			
 			Grid grid = new Grid {

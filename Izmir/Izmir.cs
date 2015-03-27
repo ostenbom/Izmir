@@ -7,13 +7,17 @@ namespace Izmir
 {
 	public class App : Application
 	{
+		
 		public App ()
 		{
+			var database = new PostsDatabase ();
+			var posts = database.GetPosts ();
+
 			var IzmirTabs = new TabbedPage ();
-			IzmirTabs.Children.Add (new HomePage {Title="Home", Icon = "xaml.png"});
-			IzmirTabs.Children.Add (new CommitteesPage {Title="Committees", Icon = "xaml.png"});
-			IzmirTabs.Children.Add (new SchedulePage {Title="Schedule", Icon = "xaml.png"});
-			IzmirTabs.Children.Add (new OtherPage {Title="Other", Icon = "xaml.png"});
+			IzmirTabs.Children.Add (new NavigationPage (new HomePage ()) {Title="Home", Icon = "xaml.png"});
+			IzmirTabs.Children.Add (new NavigationPage (new CommitteesPage ()) {Title="Committees", Icon = "xaml.png"});
+			IzmirTabs.Children.Add (new NavigationPage (new SchedulePage ()) {Title="Schedule", Icon = "xaml.png"});
+			IzmirTabs.Children.Add (new NavigationPage (new OtherPage ()) {Title="Other", Icon = "xaml.png"});
 
 			MainPage = IzmirTabs;
 		}

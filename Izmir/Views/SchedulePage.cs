@@ -8,6 +8,7 @@ namespace Izmir
 	{
 		public SchedulePage ()
 		{
+			Title = "Schedule";
 			Content = new StackLayout { 
 				Children = {
 					new Label { Text = "Hello ContentPage" }
