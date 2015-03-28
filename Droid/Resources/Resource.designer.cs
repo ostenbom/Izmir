@@ -32,6 +32,8 @@ namespace Izmir.Droid
 			global::SQLite.Resource.String.Hello = global::Izmir.Droid.Resource.String.Hello;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::Izmir.Droid.Resource.String.ApplicationName;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::Izmir.Droid.Resource.String.Hello;
+			global::AutoMapper.Android.Resource.String.ApplicationName = global::Izmir.Droid.Resource.String.ApplicationName;
+			global::AutoMapper.Android.Resource.String.Hello = global::Izmir.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute

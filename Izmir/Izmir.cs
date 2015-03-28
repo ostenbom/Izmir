@@ -10,8 +10,6 @@ namespace Izmir
 		
 		public App ()
 		{
-			var database = new PostsDatabase ();
-			var posts = database.GetPosts ();
 
 			var IzmirTabs = new TabbedPage ();
 			IzmirTabs.Children.Add (new NavigationPage (new HomePage ()) {Title="Home", Icon = "xaml.png"});

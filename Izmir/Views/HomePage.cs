@@ -2,53 +2,56 @@
 using Xamarin.Forms;
 using Xamarin;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Izmir
 {
-	public class HomePage : ContentPage
+	public class HomePage : CarouselPage
 	{
-		static PostsDatabase database;
-
-		public static PostsDatabase Database {
-			get { return database; }
-		}
-
-		ListView lv;
-		Label l;
+		List<ContentPage> pages = new List<ContentPage> ();
 
 		public HomePage ()
 		{
 			Title = "Home";
 
-			l = new Label { Text = "Posts", Font = Font.BoldSystemFontOfSize(NamedSize.Large) };
+			pages.Add (new ContentPage { Content = new StackLayout {
+					Children = {
+						new Label { Text = "HomePage!" }
 
-			var b = new Button { Text = "Get Posts" };
-			b.Clicked += async (sender, e) => {
-				var sv = new PostClient();
-				var es = await sv.GetPostsAsync();
-				Xamarin.Forms.Device.BeginInvokeOnMainThread( () => {
-					l.Text = es.Length + " posts";
-					lv.ItemsSource = es;
-				});
-				Insights.Track("postsdownloaded", new Dictionary<string, string> {{"amount","10 posts"}});
-			};
-
-			lv = new ListView ();
-			lv.ItemTemplate = new DataTemplate(typeof(TextCell));
-			lv.ItemTemplate.SetBinding(TextCell.TextProperty, "title");
-			/* lv.ItemSelected += (sender, e) => {
-				var eq = (Post)e.SelectedItem;
-				DisplayAlert("Post info", eq.ToString(), "OK", null);
-			}; */
-
-			Content = new StackLayout {
-				Padding = new Thickness (0, 20, 0, 0),
-				Children = {
-					l,
-					b,
-					lv
+					}
 				}
+			});
+
+			this.Children.Add (pages [0]);
+
+			Init ();
+		}
+
+		private async Task Init ()
+		{
+			
+			int i = 1;
+			var viewModel = new PostsViewModel ();
+			await viewModel.GetPosts ();
+			foreach (Post p in viewModel.Posts) {
+				pages.Add (new ContentPage { Content = new StackLayout {
+						Children = {
+							new Label { Text = p.title }
+
+						}
+					}
+				});
+				this.Children.Add (pages [i]);
+				i++;
 			};
+			var postl = new PostsList (viewModel.Posts);
+			pages.Add ( new ContentPage {
+				Content = new ScrollView {
+					Content = postl
+				}	
+			});
+			this.Children.Add (pages[6]);
+
 		}
 	}
 }

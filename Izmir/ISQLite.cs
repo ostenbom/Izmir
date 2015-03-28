@@ -1,11 +1,11 @@
 ﻿using System;
-using SQLite.Net;
+using SQLite.Net.Async;
 
 namespace Izmir
 {
 	public interface ISQLite
 	{
-		SQLiteConnection GetConnection();
+		SQLiteAsyncConnection GetConnection();
 	}
 }
 

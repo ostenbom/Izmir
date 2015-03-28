@@ -21,6 +21,7 @@ namespace Izmir
 		public string date { get; set; }
 
 		public string thumbnail { get; set; }
+
 	}
 	public class Rootobject
 	{

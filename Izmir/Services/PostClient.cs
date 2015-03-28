@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
-using Newtonsoft.Json;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using AutoMapper;
+using Newtonsoft.Json;
 
 namespace Izmir
 {
@@ -11,7 +14,7 @@ namespace Izmir
 		public PostClient () {
 		}
 
-		public async Task<Post[]> GetPostsAsync () {
+		/*public async Task<Post[]> GetPostsAsync () {
 
 			var client = new HttpClient ();
 
@@ -25,6 +28,39 @@ namespace Izmir
 
 			return rootobject.posts;
 
+		}*/
+
+		public async Task<List<Post>> GetPosts ()
+		{ 
+			var rootobject = new Rootobject();
+
+			using (var httpClient = CreateClient ()) {
+				var response = await httpClient.GetAsync ("?json=get_posts&date_format=Y-m-d&include=id,title,thumbnail,date,author,content,url,excerpt&count=5").ConfigureAwait(false);
+				if (response.IsSuccessStatusCode) {
+					var json = await response.Content.ReadAsStringAsync ().ConfigureAwait (false);
+					if (!string.IsNullOrWhiteSpace (json)) {
+						rootobject = await Task.Run (() => 
+							JsonConvert.DeserializeObject<Rootobject> (json)
+						).ConfigureAwait (false);
+					}
+				}
+			}
+
+			return rootobject.posts.ToList();
+		}
+
+		private const string ApiBaseAddress = "http://www.barcelonaismedia.com/";
+		private HttpClient CreateClient ()
+		{
+			var httpClient = new HttpClient 
+			{ 
+				BaseAddress = new Uri(ApiBaseAddress)
+			};
+
+			httpClient.DefaultRequestHeaders.Accept.Clear();
+			httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+			return httpClient;
 		}
 	}
 }

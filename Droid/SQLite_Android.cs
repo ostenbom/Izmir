@@ -3,22 +3,33 @@ using Xamarin.Forms;
 using Izmir;
 using Izmir.Droid;
 using System.IO;
+using SQLite.Net.Async;
+using SQLite.Net.Platform.XamarinAndroid;
+using SQLite.Net;
 
 [assembly: Dependency (typeof (SQLite_Android))]
 
 namespace Izmir.Droid
 {
-	public class SQLite_Android : ISQLite {
-		public SQLite_Android () {}
-		public SQLite.Net.SQLiteConnection GetConnection () {
-			var sqliteFilename = "IzmirSQLite.db3";
-			string documentsPath = System.Environment.GetFolderPath (System.Environment.SpecialFolder.Personal); // Documents folder
-			var path = Path.Combine(documentsPath, sqliteFilename);
-			// Create the connection
-			var plat = new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid();
-			var conn = new SQLite.Net.SQLiteConnection(plat, path);
-			// Return the database connection 
-			return conn;
-		}}
+	public class SQLite_Android : ISQLite
+	{
+		public SQLiteAsyncConnection GetConnection ()
+		{
+			var sqliteFilename = "Posts.db3";
+			var documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal);
+
+			var path = Path.Combine (documentsPath, sqliteFilename);
+
+			var platform = new SQLitePlatformAndroid ();
+
+			var connectionWithLock = new SQLiteConnectionWithLock (
+				platform,
+				new SQLiteConnectionString (path, true));
+
+			var connection = new SQLiteAsyncConnection (() => connectionWithLock);
+
+			return connection;
+		}
+	}
 }
 

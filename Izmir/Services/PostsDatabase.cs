@@ -1,65 +1,61 @@
 ﻿using System;
-using SQLite.Net;
 using Xamarin.Forms;
+using SQLite.Net.Async;
+using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Izmir
 {
 	public class PostsDatabase
 	{
-		static object locker = new object ();
-
-		SQLiteConnection database;
+		private static readonly AsyncLock Mutex = new AsyncLock ();
+		private readonly SQLiteAsyncConnection database;
 
 		public PostsDatabase ()
 		{
 			database = DependencyService.Get<ISQLite> ().GetConnection ();
-			// create the tables
-			database.CreateTable<Post>();
-
-			InitializePosts ();
-
+			CreateDatabaseAsync ();
 		}
 
-		void InitializePosts ()
+		public async Task CreateDatabaseAsync ()
 		{
-			Post post;
-
-			lock (locker) {
-				post = database.Table<Post> ().FirstOrDefault ();
-			};
-
-			if (post == null) {
-				lock (locker) {
-					var seeds = SeedData.GetSeedData ();
-					foreach (var seed in seeds) {
-						database.Insert (seed);
-					}
-				}
-			} else {
-				UpdatePosts ();
+			using (await Mutex.LockAsync ().ConfigureAwait (false)) {
+				await database.CreateTableAsync<Post> ().ConfigureAwait (false);
 			}
 		}
 
-		public async void UpdatePosts ()
+		public async Task<List<Post>> GetPostsAsync ()
 		{
-			var cl = new PostClient ();
-			var p = await cl.GetPostsAsync ();
+			List<Post> posts = new List<Post> ();
+			using (await Mutex.LockAsync ().ConfigureAwait (false)) {
+				posts = await database.Table<Post> ().ToListAsync ().ConfigureAwait (false);
+			}
 
-			if (p.Count () == 0)
-				return;
-			lock (locker) {
-				database.Execute ("delete from Post");
-				foreach (var a in p) {
-					database.Insert (a);
+			return posts;
+		}
+
+		public async Task Save (Post post)
+		{
+			using (await Mutex.LockAsync ().ConfigureAwait (false)) {
+				// Because our conference model is being mapped from the dto,
+				// we need to check the database by name, not id
+				var existingPost = await database.Table<Post> ()
+					.Where (x => x.id == post.id)
+					.FirstOrDefaultAsync ();
+
+				if (existingPost == null) {
+					await database.InsertAsync (post).ConfigureAwait (false);
+				} else {
+					post.id = existingPost.id;
+					await database.UpdateAsync (post).ConfigureAwait (false);
 				}
 			}
 		}
 
-		public List<Post> GetPosts() {
-			lock (locker) {
-				return database.Table<Post> ().ToList<Post> ();
+		public async Task SaveAll (IEnumerable<Post> posts)
+		{
+			foreach (var post in posts) {
+				await Save (post);
 			}
 		}
 	}
