@@ -35,7 +35,7 @@ namespace Izmir
 			var rootobject = new Rootobject();
 
 			using (var httpClient = CreateClient ()) {
-				var response = await httpClient.GetAsync ("?json=get_posts&date_format=Y-m-d&include=id,title,thumbnail,date,author,content,url,excerpt&count=5").ConfigureAwait(false);
+				var response = await httpClient.GetAsync ("?json=get_posts&date_format=Y-m-d&include=id,title,thumbnail,date,author,content,url,excerpt&count=5&offset=2").ConfigureAwait(false);
 				if (response.IsSuccessStatusCode) {
 					var json = await response.Content.ReadAsStringAsync ().ConfigureAwait (false);
 					if (!string.IsNullOrWhiteSpace (json)) {
@@ -56,6 +56,8 @@ namespace Izmir
 			{ 
 				BaseAddress = new Uri(ApiBaseAddress)
 			};
+
+			httpClient.Timeout = TimeSpan.FromMilliseconds (80000);
 
 			httpClient.DefaultRequestHeaders.Accept.Clear();
 			httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

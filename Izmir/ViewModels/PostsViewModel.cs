@@ -26,6 +26,7 @@ namespace Izmir
 			await GetRemotePosts ();
 			System.Diagnostics.Debug.WriteLine ("Got Remote Posts");
 			await GetLocalPosts ();
+			System.Diagnostics.Debug.WriteLine ("Got Local Posts");
 		}
 
 		private async Task GetLocalPosts()

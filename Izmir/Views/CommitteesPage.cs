@@ -10,40 +10,6 @@ namespace Izmir
 		public CommitteesPage ()
 		{
 			Title = "Committees";
-			Resources = new ResourceDictionary {
-				{ "buttonStyle", new Style(typeof(Button))
-					{
-						Setters = 
-						{
-							new Setter
-							{
-								Property = Button.BackgroundColorProperty,
-								Value = Color.Transparent
-							},
-							new Setter
-							{
-								Property = Button.TextColorProperty,
-								Value = Color.White
-							},
-							new Setter
-							{
-								Property = Button.FontSizeProperty,
-								Value = 30
-							},
-							new Setter
-							{
-								Property = View.HorizontalOptionsProperty,
-								Value = LayoutOptions.FillAndExpand
-							},
-							new Setter
-							{
-								Property = View.VerticalOptionsProperty,
-								Value = LayoutOptions.FillAndExpand
-							}
-						}
-					}
-				}
-			};
 
 			Command navigateCommand = 
 				new Command(async (obj) => 
@@ -128,9 +94,6 @@ namespace Izmir
 			};
 			this.Content = comscroll;
 
-			Device.OnPlatform(iOS: () => {
-				this.Padding = new Thickness(0, 20, 0, 0);
-			});
 		}
 	}
 }

@@ -53,124 +53,169 @@ namespace Izmir.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int albert = 2130837504;
+			public const int afcoi = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int aleksey = 2130837505;
+			public const int afcoii = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int alex = 2130837506;
+			public const int afeti = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int ammi = 2130837507;
+			public const int afetii = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int annab = 2130837508;
+			public const int agri = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int annan = 2130837509;
+			public const int albert = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int chris = 2130837510;
+			public const int aleksey = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int christina = 2130837511;
+			public const int alex = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int ciara = 2130837512;
+			public const int ammi = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int cristina = 2130837513;
+			public const int annab = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int david = 2130837514;
+			public const int annan = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int despina = 2130837515;
+			public const int chris = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int dionysis = 2130837516;
+			public const int christina = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int egzon = 2130837517;
+			public const int ciara = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int elisa = 2130837518;
+			public const int clim = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int example1 = 2130837519;
+			public const int cristina = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int example2 = 2130837520;
+			public const int david = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int example3 = 2130837521;
+			public const int despina = 2130837521;
 			
 			// aapt resource value: 0x7f020012
-			public const int example4 = 2130837522;
+			public const int deve = 2130837522;
 			
 			// aapt resource value: 0x7f020013
-			public const int flora = 2130837523;
+			public const int dionysis = 2130837523;
 			
 			// aapt resource value: 0x7f020014
-			public const int icon = 2130837524;
+			public const int econi = 2130837524;
 			
 			// aapt resource value: 0x7f020015
-			public const int ilir = 2130837525;
+			public const int econii = 2130837525;
 			
 			// aapt resource value: 0x7f020016
-			public const int jesper = 2130837526;
+			public const int egzon = 2130837526;
 			
 			// aapt resource value: 0x7f020017
-			public const int julia = 2130837527;
+			public const int elisa = 2130837527;
 			
 			// aapt resource value: 0x7f020018
-			public const int lea = 2130837528;
+			public const int example1 = 2130837528;
 			
 			// aapt resource value: 0x7f020019
-			public const int mathilde = 2130837529;
+			public const int example2 = 2130837529;
 			
 			// aapt resource value: 0x7f02001a
-			public const int megan = 2130837530;
+			public const int example3 = 2130837530;
 			
 			// aapt resource value: 0x7f02001b
-			public const int merel = 2130837531;
+			public const int example4 = 2130837531;
 			
 			// aapt resource value: 0x7f02001c
-			public const int noura = 2130837532;
+			public const int femm = 2130837532;
 			
 			// aapt resource value: 0x7f02001d
-			public const int ogulcan = 2130837533;
+			public const int flora = 2130837533;
 			
 			// aapt resource value: 0x7f02001e
-			public const int oliver = 2130837534;
+			public const int icon = 2130837534;
 			
 			// aapt resource value: 0x7f02001f
-			public const int oona = 2130837535;
+			public const int ilir = 2130837535;
 			
 			// aapt resource value: 0x7f020020
-			public const int oscar = 2130837536;
+			public const int inta = 2130837536;
 			
 			// aapt resource value: 0x7f020021
-			public const int oyku = 2130837537;
+			public const int itre = 2130837537;
 			
 			// aapt resource value: 0x7f020022
-			public const int sebastian = 2130837538;
+			public const int jesper = 2130837538;
 			
 			// aapt resource value: 0x7f020023
-			public const int siebe = 2130837539;
+			public const int julia = 2130837539;
 			
 			// aapt resource value: 0x7f020024
-			public const int sofia = 2130837540;
+			public const int lea = 2130837540;
 			
 			// aapt resource value: 0x7f020025
-			public const int sophie = 2130837541;
+			public const int libei = 2130837541;
 			
 			// aapt resource value: 0x7f020026
-			public const int storm = 2130837542;
+			public const int libeii = 2130837542;
 			
 			// aapt resource value: 0x7f020027
-			public const int xaml = 2130837543;
+			public const int libeiii = 2130837543;
+			
+			// aapt resource value: 0x7f020028
+			public const int mathilde = 2130837544;
+			
+			// aapt resource value: 0x7f020029
+			public const int megan = 2130837545;
+			
+			// aapt resource value: 0x7f02002a
+			public const int merel = 2130837546;
+			
+			// aapt resource value: 0x7f02002b
+			public const int noura = 2130837547;
+			
+			// aapt resource value: 0x7f02002c
+			public const int ogulcan = 2130837548;
+			
+			// aapt resource value: 0x7f02002d
+			public const int oliver = 2130837549;
+			
+			// aapt resource value: 0x7f02002e
+			public const int oona = 2130837550;
+			
+			// aapt resource value: 0x7f02002f
+			public const int oscar = 2130837551;
+			
+			// aapt resource value: 0x7f020030
+			public const int oyku = 2130837552;
+			
+			// aapt resource value: 0x7f020031
+			public const int sebastian = 2130837553;
+			
+			// aapt resource value: 0x7f020032
+			public const int siebe = 2130837554;
+			
+			// aapt resource value: 0x7f020033
+			public const int sofia = 2130837555;
+			
+			// aapt resource value: 0x7f020034
+			public const int sophie = 2130837556;
+			
+			// aapt resource value: 0x7f020035
+			public const int storm = 2130837557;
+			
+			// aapt resource value: 0x7f020036
+			public const int xaml = 2130837558;
 			
 			static Drawable()
 			{

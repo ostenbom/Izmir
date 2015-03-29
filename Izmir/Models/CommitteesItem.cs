@@ -15,6 +15,7 @@ namespace Izmir
 		public string JournoQuote { get; set; }
 		public string JournoPic { get; set; }
 		public string Topic { get; set; }
+		public string Overview { get; set; }
 	}
 }
 

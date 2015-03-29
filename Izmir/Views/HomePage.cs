@@ -30,18 +30,12 @@ namespace Izmir
 		private async Task Init ()
 		{
 			
-			int i = 1;
+			int i = 2;
+			int j = 1;
 			var viewModel = new PostsViewModel ();
 			await viewModel.GetPosts ();
 			foreach (Post p in viewModel.Posts) {
-				pages.Add (new ContentPage { Content = new StackLayout {
-						Children = {
-							new Label { Text = p.title }
-
-						}
-					}
-				});
-				this.Children.Add (pages [i]);
+				pages.Add (new PostView (p));
 				i++;
 			};
 			var postl = new PostsList (viewModel.Posts);
@@ -50,7 +44,10 @@ namespace Izmir
 					Content = postl
 				}	
 			});
-			this.Children.Add (pages[6]);
+			while (j < i) {
+				this.Children.Add (pages [j]);
+				j++;
+			}
 
 		}
 	}

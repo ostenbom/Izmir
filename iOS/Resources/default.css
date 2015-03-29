@@ -1,0 +1,20 @@
+body {
+	width: 97%;
+	height: 100%;
+}
+html {
+	width: 97%;
+	height: 100%;
+}
+img {
+	max-width: 97%;
+	height: auto;
+}
+div {
+	max-width: 97%;
+	height: auto;
+}
+iframe {
+	max-width: 97%;
+	height: auto;
+}

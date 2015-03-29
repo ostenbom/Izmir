@@ -10,7 +10,8 @@ namespace Izmir
 		{
 			this.Add (new CommitteesItem () {
 				Title = "AFCO I",
-				Icon = "example1.jpg",
+				Icon = "afcoi.jpg",
+				Overview = "afcoi.html",
 				ChairName = "Lea Schiewer",
 				ChairQuote = "",
 				JournoName = "Despina Dimitrakapoulou",
@@ -22,7 +23,8 @@ namespace Izmir
 
 			this.Add (new CommitteesItem () {
 				Title = "AFCO II",
-				Icon = "example2.jpg",
+				Icon = "afcoii.jpg",
+				Overview = "afcoii.html",
 				ChairName = "Oscar Stenbom",
 				ChairQuote = "I am a really big penis and I like to listen to my hip music, like all the time. Also I like skiing, so much that I went to les deux douches, that was fun. Sometimes I wish I was a professional skiier, then I could fly. Weeeeeeeee.",
 				JournoName = "David Soler Crespo",
@@ -35,7 +37,8 @@ namespace Izmir
 
 			this.Add (new CommitteesItem () {
 				Title = "AFET I",
-				Icon = "example3.jpg",
+				Icon = "afeti.jpg",
+				Overview = "afeti.html",
 				ChairName = "Oona Kiiskinen",
 				ChairQuote = "",
 				JournoName = "Egzon Gashi",
@@ -47,7 +50,8 @@ namespace Izmir
 
 			this.Add (new CommitteesItem () {
 				Title = "AFET II",
-				Icon = "example1.jpg",
+				Icon = "afetii.jpg",
+				Overview = "afetii.html",
 				ChairName = "Iuliia Pustovoitova",
 				ChairQuote = "",
 				JournoName = "Siebe Geerts",
@@ -59,7 +63,8 @@ namespace Izmir
 
 			this.Add (new CommitteesItem () {
 				Title = "AGRI",
-				Icon = "example4.jpg",
+				Icon = "agri.jpg",
+				Overview = "agri.html",
 				ChairName = "Elisa Martinelli",
 				ChairQuote = "",
 				JournoName = "Flora Böwing",
@@ -71,7 +76,8 @@ namespace Izmir
 
 			this.Add (new CommitteesItem () {
 				Title = "CLIM",
-				Icon = "example2.jpg",
+				Icon = "clim.jpg",
+				Overview = "clim.html",
 				ChairName = "Ciara Robinson",
 				ChairQuote = "",
 				JournoName = "Cristina Crespo",
@@ -83,7 +89,8 @@ namespace Izmir
 
 			this.Add (new CommitteesItem () {
 				Title = "DEVE",
-				Icon = "example3.jpg",
+				Icon = "deve.jpg",
+				Overview = "deve.html",
 				ChairName = "Megan Smith",
 				ChairQuote = "",
 				JournoName = "Anna Barkemeyer",
@@ -95,7 +102,8 @@ namespace Izmir
 
 			this.Add (new CommitteesItem () {
 				Title = "ECON I",
-				Icon = "example1.jpg",
+				Icon = "econi.jpg",
+				Overview = "econi.html",
 				ChairName = "Chris Papadogeorgopoulos",
 				ChairQuote = "",
 				JournoName = "To be found",
@@ -107,7 +115,8 @@ namespace Izmir
 
 			this.Add (new CommitteesItem () {
 				Title = "ECON II",
-				Icon = "example2.jpg",
+				Icon = "econii.jpg",
+				Overview = "econii.html",
 				ChairName = "Mathilde Pascal",
 				ChairQuote = "",
 				JournoName = "To be found",
@@ -119,7 +128,8 @@ namespace Izmir
 
 			this.Add (new CommitteesItem () {
 				Title = "FEMM",
-				Icon = "example4.jpg",
+				Icon = "femm.jpg",
+				Overview = "femm.html",
 				ChairName = "Sophie Scannell",
 				ChairQuote = "",
 				JournoName = "Merel Blok",
@@ -131,7 +141,8 @@ namespace Izmir
 
 			this.Add (new CommitteesItem () {
 				Title = "INTA",
-				Icon = "example1.jpg",
+				Icon = "inta.jpg",
+				Overview = "inta.html",
 				ChairName = "Alex Narayanin",
 				ChairQuote = "",
 				JournoName = "Annmarie Kiiskinen",
@@ -143,7 +154,8 @@ namespace Izmir
 
 			this.Add (new CommitteesItem () {
 				Title = "ITRE",
-				Icon = "example3.jpg",
+				Icon = "itre.jpg",
+				Overview = "itre.html",
 				ChairName = "Sofia Zafeiriou",
 				ChairQuote = "",
 				JournoName = "Storm Gibbons",
@@ -155,7 +167,8 @@ namespace Izmir
 
 			this.Add (new CommitteesItem () {
 				Title = "LIBE I",
-				Icon = "example2.jpg",
+				Icon = "libei.jpg",
+				Overview = "libei.html",
 				ChairName = "Albert Reverendo",
 				ChairQuote = "",
 				JournoName = "Christina Abdulahad",
@@ -167,7 +180,8 @@ namespace Izmir
 
 			this.Add (new CommitteesItem () {
 				Title = "LIBE II",
-				Icon = "example4.jpg",
+				Icon = "libeii.jpg",
+				Overview = "libeii.html",
 				ChairName = "Noura Berrouba",
 				ChairQuote = "",
 				JournoName = "Dionysis Theodoropoulos",
@@ -179,7 +193,8 @@ namespace Izmir
 
 			this.Add (new CommitteesItem () {
 				Title = "LIBE III",
-				Icon = "example3.jpg",
+				Icon = "libeiii.jpg",
+				Overview = "libeiii.html",
 				ChairName = "Ilir Kola",
 				ChairQuote = "",
 				JournoName = "Anna Nichols",

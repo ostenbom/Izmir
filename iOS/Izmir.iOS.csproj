@@ -205,6 +205,22 @@
     <BundleResource Include="Resources\sebastian.jpg" />
     <BundleResource Include="Resources\sofia.jpg" />
     <BundleResource Include="Resources\sophie.jpg" />
+    <BundleResource Include="Resources\default.css" />
+    <BundleResource Include="Resources\afcoi.jpg" />
+    <BundleResource Include="Resources\afcoii.jpg" />
+    <BundleResource Include="Resources\afeti.jpg" />
+    <BundleResource Include="Resources\afetii.jpg" />
+    <BundleResource Include="Resources\agri.jpg" />
+    <BundleResource Include="Resources\clim.jpg" />
+    <BundleResource Include="Resources\deve.jpg" />
+    <BundleResource Include="Resources\econi.jpg" />
+    <BundleResource Include="Resources\econii.jpg" />
+    <BundleResource Include="Resources\femm.jpg" />
+    <BundleResource Include="Resources\inta.jpg" />
+    <BundleResource Include="Resources\itre.jpg" />
+    <BundleResource Include="Resources\libei.jpg" />
+    <BundleResource Include="Resources\libeii.jpg" />
+    <BundleResource Include="Resources\libeiii.jpg" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -219,6 +235,8 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="SQLite_iOS.cs" />
+    <Compile Include="BaseUrl_iOS.cs" />
+    <Compile Include="BaseUrlWebViewRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="ITunesArtwork" />
