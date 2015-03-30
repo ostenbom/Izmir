@@ -5,9 +5,13 @@ using Xamarin.Forms;
 
 namespace Izmir
 {
+	public interface IBaseUrl { string Get(); }
+
+	// required temporarily for iOS, due to BaseUrl bug
+	public class BaseUrlWebView : WebView { }
+
 	public class App : Application
 	{
-		
 		public App ()
 		{
 

@@ -12,12 +12,12 @@ namespace Izmir.iOS
 {
 	public class BaseUrlWebViewRenderer : WebViewRenderer 
 	{
-		public override void LoadHtmlString (string s, NSUrl baseUrl) 
+		public override void LoadHtmlString (string s, NSUrl BaseUrl) 
 		{
-			if (baseUrl == null) {
-				baseUrl = new NSUrl (NSBundle.MainBundle.BundlePath, true);
+			if (BaseUrl == null) {
+				BaseUrl = new NSUrl (NSBundle.MainBundle.BundlePath, true);
 			}
-			base.LoadHtmlString (s, baseUrl);
+			base.LoadHtmlString (s, BaseUrl);
 		}
 	}
 }

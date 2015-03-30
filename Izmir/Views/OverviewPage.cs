@@ -4,6 +4,8 @@ using Xamarin.Forms;
 
 namespace Izmir
 {
+	
+
 	public class OverviewPage : ContentPage
 	{
 		public OverviewPage (CommitteesItem com)
@@ -22,7 +24,7 @@ namespace Izmir
 
 			string url = source.BaseUrl + com.Overview;
 
-			browser.Source = url;
+			browser.Source = source.BaseUrl + com.Overview;
 
 			Content = browser;
 		}
