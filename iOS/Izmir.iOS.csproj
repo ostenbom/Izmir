@@ -268,10 +268,13 @@
     <BundleResource Include="Resources\libeiiil.jpg" />
     <BundleResource Include="Resources\libeiil.jpg" />
     <BundleResource Include="Resources\libeil.jpg" />
-    <BundleResource Include="Resources\about.jpg" />
     <BundleResource Include="Resources\contact.jpg" />
     <BundleResource Include="Resources\sponsors.jpg" />
     <BundleResource Include="Resources\turkish.jpg" />
+    <BundleResource Include="Resources\turkish.html" />
+    <BundleResource Include="Resources\about.jpg" />
+    <BundleResource Include="Resources\c.png" />
+    <BundleResource Include="Resources\i.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

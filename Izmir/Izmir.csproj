@@ -54,6 +54,10 @@
     <Compile Include="Data\SeedData.cs" />
     <Compile Include="Data\CommitteesListData.cs" />
     <Compile Include="Data\ScheduleData.cs" />
+    <Compile Include="Views\Contact.cs" />
+    <Compile Include="Views\About.cs" />
+    <Compile Include="Views\Sponsors.cs" />
+    <Compile Include="Views\Turkish.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

@@ -113,7 +113,7 @@ namespace Izmir
 				Cover = "econil.jpg",
 				Overview = "econi.html",
 				ChairName = "Chris Papadogeorgopoulos",
-				ChairQuote = "",
+				ChairQuote = "Born and raised in Athens, currently reading Economics in the United Kingdom. Tennis aficionado, globetrotter, seasoned cook. May contain sarcasm.",
 				JournoName = "Flora Böwing",
 				JournoQuote = "While doing a Gap-Year life can get a bit boring. This is why I am trying to get the hang of model airplanes at the moment, those little beasts.",
 				ChairPic = "chris.jpg",
