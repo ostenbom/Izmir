@@ -21,7 +21,7 @@ namespace Izmir
 		{
 			Title = "Schedule";
 
-			DateTime now = new DateTime(2015, 04, 18, 10, 30, 01);
+			DateTime now = DateTime.Now;
 
 			TableRoot root = new TableRoot {};
 

@@ -9,7 +9,7 @@ namespace Izmir
 		{
 			this.Add (new Day () {
 				day = new DateTime(2015, 04, 17),
-				image = "teos.jpg",
+				image = "arrivals.jpg",
 				title = "Arrivals Day",
 				events = new Event[] {
 					new Event () {
@@ -67,7 +67,7 @@ namespace Izmir
 			});
 			this.Add (new Day () {
 				day = new DateTime(2015, 04, 19),
-				image = "tb1.jpg",
+				image = "tb2.jpg",
 				title = "Teambuilding Day 2",
 				events = new Event[] {
 					new Event () {
@@ -174,7 +174,7 @@ namespace Izmir
 			});
 			this.Add (new Day () {
 				day = new DateTime(2015, 04, 22),
-				image = "cw1.jpg",
+				image = "cw3.jpg",
 				title = "Last Day of Committee Work",
 				events = new Event[] {
 					new Event () {
@@ -422,7 +422,7 @@ namespace Izmir
 			});
 			this.Add (new Day () {
 				day = new DateTime(2015, 04, 26),
-				image = "izmir.jpg",
+				image = "departure.jpg",
 				title = "Departures Day",
 				events = new Event[] {
 					new Event () {

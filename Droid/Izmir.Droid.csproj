@@ -188,15 +188,21 @@
     <AndroidResource Include="Resources\drawable\libeiii.jpg" />
     <AndroidResource Include="Resources\drawable\egzon2.jpg" />
     <AndroidResource Include="Resources\drawable\patrik.jpg" />
+    <AndroidResource Include="Resources\drawable\izmir.jpg" />
+    <AndroidResource Include="Resources\drawable\teos.jpg" />
+    <AndroidResource Include="Resources\drawable\arrivals.jpg" />
     <AndroidResource Include="Resources\drawable\cw1.jpg" />
     <AndroidResource Include="Resources\drawable\cw2.jpg" />
+    <AndroidResource Include="Resources\drawable\cw3.jpg" />
+    <AndroidResource Include="Resources\drawable\departure.jpg" />
     <AndroidResource Include="Resources\drawable\ephesus.jpg" />
     <AndroidResource Include="Resources\drawable\ga1.jpg" />
     <AndroidResource Include="Resources\drawable\ga2.jpg" />
-    <AndroidResource Include="Resources\drawable\izmir.jpg" />
+    <AndroidResource Include="Resources\drawable\post.jpg" />
+    <AndroidResource Include="Resources\drawable\pre.jpg" />
     <AndroidResource Include="Resources\drawable\tb1.jpg" />
     <AndroidResource Include="Resources\drawable\tb2.jpg" />
-    <AndroidResource Include="Resources\drawable\teos.jpg" />
+    <AndroidResource Include="Resources\drawable\ar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.4.0.6341\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.0.6341\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
