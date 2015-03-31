@@ -253,6 +253,25 @@
     <BundleResource Include="Resources\tb1.jpg" />
     <BundleResource Include="Resources\tb2.jpg" />
     <BundleResource Include="Resources\ar.png" />
+    <BundleResource Include="Resources\afcoiil.jpg" />
+    <BundleResource Include="Resources\afcoil.jpg" />
+    <BundleResource Include="Resources\afetiil.jpg" />
+    <BundleResource Include="Resources\afetil.jpg" />
+    <BundleResource Include="Resources\agril.jpg" />
+    <BundleResource Include="Resources\climl.jpg" />
+    <BundleResource Include="Resources\devel.jpg" />
+    <BundleResource Include="Resources\econiil.jpg" />
+    <BundleResource Include="Resources\econil.jpg" />
+    <BundleResource Include="Resources\femml.jpg" />
+    <BundleResource Include="Resources\intal.jpg" />
+    <BundleResource Include="Resources\itrel.jpg" />
+    <BundleResource Include="Resources\libeiiil.jpg" />
+    <BundleResource Include="Resources\libeiil.jpg" />
+    <BundleResource Include="Resources\libeil.jpg" />
+    <BundleResource Include="Resources\about.jpg" />
+    <BundleResource Include="Resources\contact.jpg" />
+    <BundleResource Include="Resources\sponsors.jpg" />
+    <BundleResource Include="Resources\turkish.jpg" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

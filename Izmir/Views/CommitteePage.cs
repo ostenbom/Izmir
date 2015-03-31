@@ -138,17 +138,8 @@ namespace Izmir
 				CommandParameter = com
 			};
 
-			var titleLabel = new Label () {
-				Text = com.Title,
-				TextColor = Color.Black,
-				HorizontalOptions = LayoutOptions.Center,
-				VerticalOptions = LayoutOptions.Center,
-				BackgroundColor = Color.Transparent,
-				FontSize = 30
-			};
-
 			var iconImage = new Image () {
-				Source = ImageSource.FromFile(com.Icon),
+				Source = ImageSource.FromFile(com.Cover),
 				Aspect = Aspect.AspectFill
 			};
 
@@ -157,7 +148,7 @@ namespace Izmir
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				Content = new StackLayout {
 					Children = {iconImage, new StackLayout {
-							Children ={titleLabel, people , chairLayout, journoLayout, topic, topicLabel, topicbtn},
+							Children ={ people , chairLayout, journoLayout, topic, topicLabel, topicbtn},
 							Padding = new Thickness(10, 0, 10, 0)
 						}},
 					Spacing = 0

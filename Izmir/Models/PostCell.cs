@@ -8,9 +8,7 @@ namespace Izmir
 	{
 		public PostCell ()
 		{
-			var thumbnail = new CircleImage {
-				BorderColor = Color.Aqua,
-				BorderThickness = 2,
+			var thumbnail = new Image {
 				HeightRequest = 50,
 				WidthRequest = 50,
 				Aspect = Aspect.AspectFill,

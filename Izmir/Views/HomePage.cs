@@ -26,7 +26,11 @@ namespace Izmir
 
 		StackLayout postloadlayout = new StackLayout { Orientation = StackOrientation.Horizontal, HorizontalOptions = LayoutOptions.Center };
 
-		StackLayout swipelayout = new StackLayout { Orientation = StackOrientation.Horizontal, Padding = new Thickness(10, 0, 10 ,0) };
+		StackLayout homepostlayout = new StackLayout { Padding = new Thickness(10, 0, 10 ,0), VerticalOptions = LayoutOptions.FillAndExpand };
+
+		List<Post> homelist = new List<Post> ();
+
+		ListView homelistview;
 
 		ActivityIndicator postsloading = new ActivityIndicator
 		{
@@ -38,22 +42,7 @@ namespace Izmir
 		public HomePage ()
 		{
 			Title = "Home";
-
-			var swipelabel = new Label () {
-				Text = "Swipe to check out posts",
-				FontSize = 18,
-				TextColor = Color.Black,
-				HorizontalOptions = LayoutOptions.FillAndExpand
-			};
-
-			var swipeimage = new Image () {
-				Source = FileImageSource.FromFile("ar.jpg"),
-				HeightRequest = 15
-			};
-
-			swipelayout.Children.Add (swipelabel);
-			swipelayout.Children.Add (swipeimage);
-
+			
 			OnTimeUpdate();
 
 			Device.StartTimer (TimeSpan.FromMinutes(5), OnTimeUpdate);
@@ -68,20 +57,48 @@ namespace Izmir
 				VerticalOptions = LayoutOptions.Center
 			};
 
+			Command navigateCommand = 
+				new Command(async => 
+					{
+						CurrentPage = this.Children[3];
+					});
+
+			Button navigatebtn = new Button {
+				Text = "Navigate",
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				Command = navigateCommand
+			};
+
+			homelistview = new ListView {
+				HasUnevenRows = true,
+				ItemTemplate = new DataTemplate(typeof(PostCell)),
+				SeparatorColor = Color.FromHex("#ddd")
+			};
+
+
 			postloadlayout.Children.Add (postsloading);
+
 			postloadlayout.Children.Add (postloadlabel);
 
 			layout.Children.Add (featurelayout);
 
 			layout.Children.Add (postloadlayout);
 
-			layout.Children.Add (swipelayout);
+			layout.Children.Add (homepostlayout);
+
+			layout.Children.Add (navigatebtn);
 
 			pages.Add (new ContentPage { Content = new ScrollView () { Content = layout} });
 
 			this.Children.Add (pages [0]);
 
 			Init ();
+
+			homelistview.ItemSelected += (sender, e) => {
+				CurrentPage = this.Children[3]; 
+				homelistview.SelectedItem = null; 
+			};
+
 		}
 
 		private async Task Init ()
@@ -89,12 +106,21 @@ namespace Izmir
 			
 			int i = 2;
 			int j = 1;
+			int k = 0;
+
 			var viewModel = new PostsViewModel ();
 			await viewModel.GetPosts ();
-			foreach (Post p in viewModel.Posts) {
-				pages.Add (new PostView (p));
+			while (i < 7) {
+				pages.Add (new PostView (viewModel.Posts[k]));
+				homelist.Add (viewModel.Posts [k]);
+				k++;
 				i++;
-			};
+			}
+
+			homelistview.ItemsSource = homelist;
+
+			homepostlayout.Children.Add (homelistview);
+
 			var postl = new ListView {
 				HasUnevenRows = true,
 				ItemTemplate = new DataTemplate(typeof(PostCell)),

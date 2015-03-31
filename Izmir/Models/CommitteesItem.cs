@@ -8,6 +8,7 @@ namespace Izmir
 	{
 		public string Title { get; set; }
 		public string Icon { get; set; }
+		public string Cover { get; set; }
 		public string ChairName { get; set; }
 		public string ChairQuote { get; set; }
 		public string ChairPic { get; set; }

@@ -11,6 +11,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "AFCO I",
 				Icon = "afcoi.jpg",
+				Cover = "afcoil.jpg",
 				Overview = "afcoi.html",
 				ChairName = "Lea Schiewer",
 				ChairQuote = "I am nordic by nature, a post card addict and cannot say no to cake and coffee. Backpack, paper and ink rule my world. I tried both climbing a volcano and living in Berlin.",
@@ -24,6 +25,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "AFCO II",
 				Icon = "afcoii.jpg",
+				Cover = "afcoiil.jpg",
 				Overview = "afcoii.html",
 				ChairName = "Oscar Stenbom",
 				ChairQuote = "Oscar lives in York where he studies. He likes the usual kinds of things many others enjoy, like music, sports and cooking. He excels at writing mundane introductions. You should buy him a beer!",
@@ -38,6 +40,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "AFET I",
 				Icon = "afeti.jpg",
+				Cover = "afetil.jpg",
 				Overview = "afeti.html",
 				ChairName = "Oona Kiiskinen",
 				ChairQuote = "Following my degree in Scotland, I am now enjoying a gap year in Berlin - learning German, mapping out the city by cycling and making the most of the Berlin café scene.",
@@ -51,6 +54,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "AFET II",
 				Icon = "afetii.jpg",
+				Cover = "afetiil.jpg",
 				Overview = "afetii.html",
 				ChairName = "Iuliia Pustovoitova",
 				ChairQuote = "#kyiv #hr #work #eyp #chairing #music #travelling #mexicanfood #spicy #movies #summer #springisnotthatbadwhenyouregoingtoizmir #placetobe",
@@ -64,6 +68,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "AGRI",
 				Icon = "agri.jpg",
+				Cover = "agril.jpg",
 				Overview = "agri.html",
 				ChairName = "Elisa Martinelli",
 				ChairQuote = "\"All that is gold does not glitter, not all those who wander are lost.” - J.R.R. Tolkien, The Fellowship of the Ring.",
@@ -77,6 +82,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "CLIM",
 				Icon = "clim.jpg",
+				Cover = "climl.jpg",
 				Overview = "clim.html",
 				ChairName = "Ciara Robinson",
 				ChairQuote = "Since I am awful with creative quips or puns, I'll just steal a good quote from my old pal Socrates, 'Let him who would move the world first move himself'. Gotta start somewhere right?",
@@ -90,6 +96,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "DEVE",
 				Icon = "deve.jpg",
+				Cover = "devel.jpg",
 				Overview = "deve.html",
 				ChairName = "Megan Smith",
 				ChairQuote = "",
@@ -103,6 +110,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "ECON I",
 				Icon = "econi.jpg",
+				Cover = "econil.jpg",
 				Overview = "econi.html",
 				ChairName = "Chris Papadogeorgopoulos",
 				ChairQuote = "",
@@ -116,6 +124,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "ECON II",
 				Icon = "econii.jpg",
+				Cover = "econiil.jpg",
 				Overview = "econii.html",
 				ChairName = "Mathilde Pascal",
 				ChairQuote = "Atypical French, proud introvert, tea drinker, cat person, pseudo geek, food lover, maths enthusiast, etc.",
@@ -129,6 +138,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "FEMM",
 				Icon = "femm.jpg",
+				Cover = "femml.jpg",
 				Overview = "femm.html",
 				ChairName = "Sophie Scannell",
 				ChairQuote = "Mathematician, morning person, improving cyclist and disimproving runner, I spend most of my time thinking about food.",
@@ -142,6 +152,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "INTA",
 				Icon = "inta.jpg",
+				Cover = "intal.jpg",
 				Overview = "inta.html",
 				ChairName = "Alex Narayanin",
 				ChairQuote = "My name is Alex, I am half-French, half German and currently live in Berlin. I enjoy Star Wars, puzzling and if I were to be a character of Grey’s Anatomy, I would probably be Richard Webber.",
@@ -155,6 +166,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "ITRE",
 				Icon = "itre.jpg",
+				Cover = "itrel.jpg",
 				Overview = "itre.html",
 				ChairName = "Sofia Zafeiriou",
 				ChairQuote = "Student of electrical & computer engineering based in Athens, Greece. Linux enthousiast, oenophile, planning freak. I love good food.",
@@ -168,6 +180,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "LIBE I",
 				Icon = "libei.jpg",
+				Cover = "libeil.jpg",
 				Overview = "libei.html",
 				ChairName = "Albert Reverendo",
 				ChairQuote = "Izmir 2015 is a great chance to learn from our contexts and ourselves.We'll ask critically, have fun and develop through academics.",
@@ -181,6 +194,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "LIBE II",
 				Icon = "libeii.jpg",
+				Cover = "libeiil.jpg",
 				Overview = "libeii.html",
 				ChairName = "Noura Berrouba",
 				ChairQuote = "",
@@ -194,6 +208,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "LIBE III",
 				Icon = "libeiii.jpg",
+				Cover = "libeiiil.jpg",
 				Overview = "libeiii.html",
 				ChairName = "Ilir Kola",
 				ChairQuote = "",
@@ -207,6 +222,7 @@ namespace Izmir
 			this.Add (new CommitteesItem () {
 				Title = "Other",
 				Icon = "example4.jpg",
+				Cover = "example4.jpg",
 				ChairName = "",
 				ChairQuote = "",
 				JournoName = "",
