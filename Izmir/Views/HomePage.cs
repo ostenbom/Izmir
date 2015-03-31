@@ -14,13 +14,33 @@ namespace Izmir
 		{
 			Title = "Home";
 
-			pages.Add (new ContentPage { Content = new StackLayout {
-					Children = {
-						new Label { Text = "HomePage!" }
+			var myLabel = new Label () {
+				Text = "Hello World",
+				FontSize = 20,
+				TextColor = Color.White,
+				XAlign = TextAlignment.Center,
+				YAlign = TextAlignment.Center
+			};
 
-					}
-				}
-			});
+			var myImage = new Image () {
+				Source = FileImageSource.FromFile("cw1.jpg")
+			};
+
+			RelativeLayout layout = new RelativeLayout ();
+
+			layout.Children.Add (myImage, 
+				Constraint.Constant (0), 
+				Constraint.Constant (0),
+				Constraint.RelativeToParent ((parent) => { return parent.Width; }),
+				Constraint.RelativeToParent ((parent) => { return parent.Height; }));
+
+			layout.Children.Add (myLabel, 
+				Constraint.Constant (0), 
+				Constraint.Constant (0),
+				Constraint.RelativeToParent ((parent) => { return parent.Width; }),
+				Constraint.RelativeToParent ((parent) => { return parent.Height; }));
+
+			pages.Add (new ContentPage { Content = new ScrollView () { Content = new StackLayout { Children = { new Label { Text = "Hello World" }, layout, new Label { Text = "Maybe something else" }}}} });
 
 			this.Children.Add (pages [0]);
 

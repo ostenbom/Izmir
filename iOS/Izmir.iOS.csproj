@@ -236,6 +236,17 @@
     <BundleResource Include="Resources\libei.html" />
     <BundleResource Include="Resources\libeii.html" />
     <BundleResource Include="Resources\libeiii.html" />
+    <BundleResource Include="Resources\egzon2.jpg" />
+    <BundleResource Include="Resources\patrik.jpg" />
+    <BundleResource Include="Resources\cw1.jpg" />
+    <BundleResource Include="Resources\cw2.jpg" />
+    <BundleResource Include="Resources\ephesus.jpg" />
+    <BundleResource Include="Resources\ga1.jpg" />
+    <BundleResource Include="Resources\ga2.jpg" />
+    <BundleResource Include="Resources\izmir.jpg" />
+    <BundleResource Include="Resources\tb1.jpg" />
+    <BundleResource Include="Resources\tb2.jpg" />
+    <BundleResource Include="Resources\teos.jpg" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

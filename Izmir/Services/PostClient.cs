@@ -49,7 +49,7 @@ namespace Izmir
 			return rootobject.posts.ToList();
 		}
 
-		private const string ApiBaseAddress = "http://www.barcelonaismedia.com/";
+		private const string ApiBaseAddress = "http://kzine.se/";
 		private HttpClient CreateClient ()
 		{
 			var httpClient = new HttpClient 

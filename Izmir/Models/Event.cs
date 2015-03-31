@@ -15,6 +15,10 @@ namespace Izmir
 	{
 		public DateTime day { get; set; }
 
+		public string image { get; set; }
+
+		public string title { get; set; }
+
 		public Event[] events { get; set; }
 	}
 }
