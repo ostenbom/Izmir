@@ -41,7 +41,9 @@ namespace Izmir
 			var remoteClient = new PostClient ();
 			var posts = await remoteClient.GetPosts ().ConfigureAwait(false);
 			System.Diagnostics.Debug.WriteLine ("Getting Somewhere");
-			await db.SaveAll (posts).ConfigureAwait (false);
+			if(posts != null){
+				await db.SaveAll (posts).ConfigureAwait (false);
+			}
 		}
 	}
 }

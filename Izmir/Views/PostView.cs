@@ -14,9 +14,20 @@ namespace Izmir
 				VerticalOptions = LayoutOptions.FillAndExpand
 			};
 			var source = new HtmlWebViewSource ();
-			source.Html = @"<html><head>
-<link rel=""stylesheet"" href=""default.css"">
-</head><body>"+"<h1>"+post.title+"</h1>"+post.content+"</body></html>";
+			source.Html = @"<!DOCTYPE html>
+<html>
+<head>
+    <link href=""default.css"" rel=""stylesheet"" type=""text/css"">
+
+    <title></title>
+</head>
+
+<body class=""single"">
+    <div id=""container"">
+        <main class=""singlepage"" id=""main"" itemprop=""mainContentOfPage""
+        itemscope itemtype=""http://schema.org/Blog"" role=""main"">
+            <article class="""">
+                <section class=""entry-content cf"">"+post.content+"</body></html>";
 			if (Device.OS != TargetPlatform.iOS) {
 				// the BaseUrlWebViewRenderer does this for iOS, until bug is fixed
 				source.BaseUrl = DependencyService.Get<IBaseUrl> ().Get ();

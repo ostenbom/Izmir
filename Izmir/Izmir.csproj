@@ -58,6 +58,10 @@
     <Compile Include="Views\About.cs" />
     <Compile Include="Views\Sponsors.cs" />
     <Compile Include="Views\Turkish.cs" />
+    <Compile Include="Services\ImageClient.cs" />
+    <Compile Include="Models\Flickr.cs" />
+    <Compile Include="Models\OtherPerson.cs" />
+    <Compile Include="Data\OtherPeopleData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

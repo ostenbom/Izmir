@@ -73,7 +73,7 @@ namespace Izmir
 				FontSize = fontsize
 			};
 			var by = new Label {
-				Text = "App made by Oliver Stenbom for the 78th International Session of the European Youth Parliament in Izmir.",
+				Text = "App made by IZMEDIA for the 78th International Session of the European Youth Parliament in Izmir.",
 				HorizontalOptions = LayoutOptions.Center,
 				VerticalOptions = LayoutOptions.Center,
 				XAlign = TextAlignment.Center,

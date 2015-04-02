@@ -16,10 +16,10 @@ namespace Izmir
 		{
 
 			var IzmirTabs = new TabbedPage ();
-			IzmirTabs.Children.Add (new NavigationPage (new HomePage ()) {Title="Home", Icon = "xaml.png"});
-			IzmirTabs.Children.Add (new NavigationPage (new CommitteesPage ()) {Title="Committees", Icon = "xaml.png"});
-			IzmirTabs.Children.Add (new NavigationPage (new SchedulePage ()) {Title="Schedule", Icon = "xaml.png"});
-			IzmirTabs.Children.Add (new NavigationPage (new OtherPage ()) {Title="Other", Icon = "xaml.png"});
+			IzmirTabs.Children.Add (new NavigationPage (new HomePage ()) {Title="Home", Icon = "h.png"});
+			IzmirTabs.Children.Add (new NavigationPage (new CommitteesPage ()) {Title="Committees", Icon = "com.png"});
+			IzmirTabs.Children.Add (new NavigationPage (new SchedulePage ()) {Title="Schedule", Icon = "cal.png"});
+			IzmirTabs.Children.Add (new NavigationPage (new OtherPage ()) {Title="Other", Icon = "m.png"});
 
 			MainPage = IzmirTabs;
 		}

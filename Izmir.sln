@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Izmir", "Izmir\Izmir.csproj", "{1F51D773-E56D-4534-BBB6-C5681E42BC10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Izmir.iOS", "iOS\Izmir.iOS.csproj", "{17902124-D536-4C70-AB81-A7D2BC2D25C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "İzmir 2015", "iOS\İzmir 2015.csproj", "{17902124-D536-4C70-AB81-A7D2BC2D25C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Izmir.Droid", "Droid\Izmir.Droid.csproj", "{526D57CE-8769-4A78-8B68-E5B224B2E516}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "İzmir 2015", "Droid\İzmir 2015.csproj", "{526D57CE-8769-4A78-8B68-E5B224B2E516}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

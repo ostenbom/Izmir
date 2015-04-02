@@ -14,7 +14,7 @@ namespace Izmir
 		public PostClient () {
 		}
 
-		/*public async Task<Post[]> GetPostsAsync () {
+		/*public async Task<Post[]> GetPosts () {
 
 			var client = new HttpClient ();
 
@@ -35,21 +35,26 @@ namespace Izmir
 			var rootobject = new Rootobject();
 
 			using (var httpClient = CreateClient ()) {
-				var response = await httpClient.GetAsync ("?json=get_posts&date_format=Y-m-d&include=id,title,thumbnail,date,author,content,url,excerpt&count=5&offset=2").ConfigureAwait(false);
-				if (response.IsSuccessStatusCode) {
-					var json = await response.Content.ReadAsStringAsync ().ConfigureAwait (false);
-					if (!string.IsNullOrWhiteSpace (json)) {
-						rootobject = await Task.Run (() => 
-							JsonConvert.DeserializeObject<Rootobject> (json)
-						).ConfigureAwait (false);
+				try {
+					var response = await httpClient.GetAsync ("?json=get_posts&date_format=Y-m-d&include=id,title,thumbnail,date,author,content,url,excerpt&count=5&offset=2");
+					if (response.IsSuccessStatusCode) {
+						var json = await response.Content.ReadAsStringAsync ().ConfigureAwait (false);
+						if (!string.IsNullOrWhiteSpace (json)) {
+							rootobject = await Task.Run (() => 
+								JsonConvert.DeserializeObject<Rootobject> (json)
+							).ConfigureAwait (false);
+						}
 					}
+				} catch (Exception e) {
+					System.Diagnostics.Debug.WriteLine ("Exception {0}", e);
+					return null;
 				}
 			}
 
 			return rootobject.posts.ToList();
 		}
 
-		private const string ApiBaseAddress = "http://kzine.se/";
+		private const string ApiBaseAddress = "http://media.izmir2015.org/";
 		private HttpClient CreateClient ()
 		{
 			var httpClient = new HttpClient 
@@ -57,7 +62,7 @@ namespace Izmir
 				BaseAddress = new Uri(ApiBaseAddress)
 			};
 
-			httpClient.Timeout = TimeSpan.FromMilliseconds (80000);
+			httpClient.Timeout = TimeSpan.FromSeconds (5);
 
 			httpClient.DefaultRequestHeaders.Accept.Clear();
 			httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

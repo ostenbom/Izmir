@@ -32,6 +32,8 @@ namespace Izmir
 
 		ListView homelistview;
 
+		ListView postl;
+
 		ActivityIndicator postsloading = new ActivityIndicator
 		{
 			Color = Device.OnPlatform(Color.Black, Color.Default, Color.Default),
@@ -57,18 +59,6 @@ namespace Izmir
 				VerticalOptions = LayoutOptions.Center
 			};
 
-			Command navigateCommand = 
-				new Command(async => 
-					{
-						CurrentPage = this.Children[3];
-					});
-
-			Button navigatebtn = new Button {
-				Text = "Navigate",
-				HorizontalOptions = LayoutOptions.FillAndExpand,
-				Command = navigateCommand
-			};
-
 			homelistview = new ListView {
 				HasUnevenRows = true,
 				ItemTemplate = new DataTemplate(typeof(PostCell)),
@@ -86,16 +76,18 @@ namespace Izmir
 
 			layout.Children.Add (homepostlayout);
 
-			layout.Children.Add (navigatebtn);
-
 			pages.Add (new ContentPage { Content = new ScrollView () { Content = layout} });
 
 			this.Children.Add (pages [0]);
 
 			Init ();
 
+			Initimages ();
+
 			homelistview.ItemSelected += (sender, e) => {
-				CurrentPage = this.Children[3]; 
+				var selectpost = (Post)e.SelectedItem;
+				int pos = homelist.IndexOf(selectpost) + 1;
+				CurrentPage = this.Children[pos]; 
 				homelistview.SelectedItem = null; 
 			};
 
@@ -121,7 +113,7 @@ namespace Izmir
 
 			homepostlayout.Children.Add (homelistview);
 
-			var postl = new ListView {
+			postl = new ListView {
 				HasUnevenRows = true,
 				ItemTemplate = new DataTemplate(typeof(PostCell)),
 				ItemsSource = viewModel.Posts,
@@ -137,9 +129,21 @@ namespace Izmir
 				j++;
 			}
 
+			postl.ItemSelected += async (sender, e) => {
+				var selectpost = (Post)e.SelectedItem;
+				var postpage = new PostView(selectpost);
+				await Navigation.PushAsync(postpage);
+			};
+
 			postsloading.IsRunning = false;
 
 			layout.Children.Remove (postloadlayout);
+
+		}
+
+		private async Task Initimages () {
+			var client = new ImageClient ();
+			var images = await client.GetImages ().ConfigureAwait (false);
 
 		}
 
