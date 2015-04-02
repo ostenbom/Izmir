@@ -27,7 +27,7 @@ namespace Izmir
         <main class=""singlepage"" id=""main"" itemprop=""mainContentOfPage""
         itemscope itemtype=""http://schema.org/Blog"" role=""main"">
             <article class="""">
-                <section class=""entry-content cf"">"+post.content+"</body></html>";
+                <section class=""entry-content cf""><h1>"+ post.title + "</h1>" + post.excerpt + post.content+"</section>\n            </article>\n        </main>\n    </div>\n</body>";
 			if (Device.OS != TargetPlatform.iOS) {
 				// the BaseUrlWebViewRenderer does this for iOS, until bug is fixed
 				source.BaseUrl = DependencyService.Get<IBaseUrl> ().Get ();
