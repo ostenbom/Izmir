@@ -10,151 +10,151 @@ namespace Izmir
 			this.Add (new OtherPerson () {
 				name = "Öykü Talı",
 				title = "Head Organiser",
-				image = ""
+				image = "oyku.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Oğulcan Torun",
 				title = "President",
-				image = ""
+				image = "ogulcan.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Sebastian Hojas",
 				title = "Editor",
-				image = ""
+				image = "sebastian.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Oliver Stenbom",
 				title = "Editor",
-				image = ""
+				image = "oliver.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Aleksey Prylipka",
 				title = "Editorial Assistant",
-				image = ""
+				image = "aleksey.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Arda Burak Altuntas",
 				title = "Team Leader - Ephesus",
-				image = ""
+				image = "ardab.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Arda Erdeniz",
 				title = "Team Leader - Smyrna & Teos",
-				image = ""
+				image = "ardae.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Deniz Selçuk",
 				title = "Team Leader - Ephesus",
-				image = ""
+				image = "denizs.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Dilge İmer",
 				title = "Team Leader - Teos",
-				image = ""
+				image = "dilge.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Işınsu Ateş",
 				title = "Team Leader - Smyrna",
-				image = ""
+				image = "isinsu.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Alinda Ohotski",
 				title = "Organiser - Teos",
-				image = ""
+				image = "alinda.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Ali Argun Okumuşoğlu",
 				title = "Organiser - Ephesus & Teos",
-				image = ""
+				image = "ali.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Arda Berk Sağır",
 				title = "Organiser - Ephesus",
-				image = ""
+				image = "ardabe.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Barlas Türkyılmaz",
 				title = "Organiser - Ephesus",
-				image = ""
+				image = "barlas.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Berkay Berabi",
 				title = "Organiser - Smyrna",
-				image = ""
+				image = "berkay.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Can Altunkaynak",
 				title = "Organiser - Smyrna",
-				image = ""
+				image = "can.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Enescan Karaer",
 				title = "Organiser - Ephesus",
-				image = ""
+				image = "enescan.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Furkan Kalender",
 				title = "Organiser - Ephesus",
-				image = ""
+				image = "furkan.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Gülşah Özdemir",
 				title = "Organiser - Teos",
-				image = ""
+				image = "gulsah.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "İrem Erduran",
 				title = "Organiser - Smyrna",
-				image = ""
+				image = "ireme.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "İrem Gökduman",
 				title = "Organiser - Ephesus",
-				image = ""
+				image = "iremg.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Mert Can",
 				title = "Organiser - Smyrna",
-				image = ""
+				image = "mert.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Mert Ege Açıkgöz",
 				title = "Organiser - Teos",
-				image = ""
+				image = "merte.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Ömer Oğuz",
 				title = "Organiser - Smyrna",
-				image = ""
+				image = "omer.jpg"
 			});
 
 			this.Add (new OtherPerson () {
 				name = "Selin Kolbaşı",
 				title = "Organiser - Smyrna",
-				image = ""
+				image = "selin.jpg"
 			});
 		}
 	}

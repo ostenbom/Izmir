@@ -17,6 +17,12 @@ namespace Izmir
 						var compage = new CommitteePage(obj as CommitteesItem);
 						await Navigation.PushAsync(compage);
 					});
+			Command navigateotherCommand = 
+				new Command(async (obj) => 
+					{
+						var otherpeoplepage = new OtherPeopePage();
+						await Navigation.PushAsync(otherpeoplepage);
+					});
 			
 			Grid grid = new Grid {
 				VerticalOptions = LayoutOptions.FillAndExpand,
@@ -87,6 +93,37 @@ namespace Izmir
 
 				i++;
 			};
+			var otherButton = new Button () {
+				Text = "Other",
+				TextColor = Color.White,
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				BackgroundColor = Color.Transparent,
+				FontSize = 24,
+				Command = navigateotherCommand,
+				CommandParameter = "thing"
+			};
+
+			var otherImage = new Image () {
+				Source = ImageSource.FromFile("example1.jpg"),
+				Aspect = Aspect.AspectFill
+			};
+
+			RelativeLayout otherlayout = new RelativeLayout ();
+
+			otherlayout.Children.Add (otherImage,
+				Constraint.Constant (0),
+				Constraint.Constant (0),
+				Constraint.RelativeToParent ((parent) => { return parent.Width; }),
+				Constraint.RelativeToParent ((parent) => { return parent.Height; }));
+
+			otherlayout.Children.Add (otherButton,
+				Constraint.Constant (0),
+				Constraint.Constant (0),
+				Constraint.RelativeToParent ((parent) => { return parent.Width; }),
+				Constraint.RelativeToParent ((parent) => { return parent.Height; }));
+
+			grid.Children.Add (otherlayout, 1, 7);
 
 			ScrollView comscroll = new ScrollView () {
 				VerticalOptions = LayoutOptions.FillAndExpand,

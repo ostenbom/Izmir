@@ -82,7 +82,7 @@ namespace Izmir
 
 			Init ();
 
-			Initimages ();
+			/* Initimages ();*/
 
 			homelistview.ItemSelected += (sender, e) => {
 				var selectpost = (Post)e.SelectedItem;
@@ -102,9 +102,13 @@ namespace Izmir
 
 			var viewModel = new PostsViewModel ();
 			await viewModel.GetPosts ();
+			var vmposts = viewModel.Posts;
+			if (viewModel.Posts.Count == 0) {
+				vmposts = new SeedData ();
+			}
 			while (i < 7) {
-				pages.Add (new PostView (viewModel.Posts[k]));
-				homelist.Add (viewModel.Posts [k]);
+				pages.Add (new PostView (vmposts[k]));
+				homelist.Add (vmposts[k]);
 				k++;
 				i++;
 			}
@@ -116,9 +120,9 @@ namespace Izmir
 			postl = new ListView {
 				HasUnevenRows = true,
 				ItemTemplate = new DataTemplate(typeof(PostCell)),
-				ItemsSource = viewModel.Posts,
 				SeparatorColor = Color.FromHex("#ddd")
 			};
+			postl.ItemsSource = vmposts;
 			pages.Add ( new ContentPage {
 				Content = new StackLayout {
 					Children = {postl}

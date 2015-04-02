@@ -87,7 +87,7 @@ namespace Izmir
 				ChairName = "Ciara Robinson",
 				ChairQuote = "Since I am awful with creative quips or puns, I'll just steal a good quote from my old pal Socrates, 'Let him who would move the world first move himself'. Gotta start somewhere right?",
 				JournoName = "Cristina Crespo",
-				JournoQuote = "",
+				JournoQuote = "\"Look deep into nature, and then you will understand everything better.\" -  Albert Einstein",
 				ChairPic = "ciara.jpg",
 				JournoPic = "cristina.jpg",
 				Topic = "The upcoming 2015 United Nations Climate Change Conference in Paris could mark a decisive stage in the negotiations of a post-2020 international agreement on climate change. What role should the EU play in the negotiations of a binding and universal climate agreement?"
@@ -117,7 +117,7 @@ namespace Izmir
 				JournoName = "Flora Böwing",
 				JournoQuote = "While doing a Gap-Year life can get a bit boring. This is why I am trying to get the hang of model airplanes at the moment, those little beasts.",
 				ChairPic = "chris.jpg",
-				JournoPic = "example3.jpg",
+				JournoPic = "flora.jpg",
 				Topic = "Evasion versus avoidance? How should Member States address tax avoidance, while respecting their citizens’ right to privacy and Third-Party States’ sovereignty?"
 			});
 
@@ -143,7 +143,7 @@ namespace Izmir
 				ChairName = "Sophie Scannell",
 				ChairQuote = "Mathematician, morning person, improving cyclist and disimproving runner, I spend most of my time thinking about food.",
 				JournoName = "Merel Blok",
-				JournoQuote = "",
+				JournoQuote = "\"The woods are lovely, dark and deep. But I have promises to keep, and miles to go before I sleep. \" - Robert Frost",
 				ChairPic = "sophie.jpg",
 				JournoPic = "merel.jpg",
 				Topic = "The role of services and the support of partners and communities in family planning: what measures should be taken to ensure European women have better control over their sexual and reproductive lives and provide consistent access to basic support and services pertaining to reproductive health?"
@@ -217,19 +217,6 @@ namespace Izmir
 				ChairPic = "ilir.jpg",
 				JournoPic = "annan.jpg",
 				Topic = "How should the EU support companies and citizens in safely gaining access to virtual currencies, given their recent weaknesses to cybercrime?"
-			});
-
-			this.Add (new CommitteesItem () {
-				Title = "Other",
-				Icon = "example4.jpg",
-				Cover = "example4.jpg",
-				ChairName = "",
-				ChairQuote = "",
-				JournoName = "",
-				JournoQuote = "",
-				ChairPic = "example2.jpg",
-				JournoPic = "example3.jpg",
-				Topic = ""
 			});
 		}
 	}

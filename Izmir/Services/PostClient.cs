@@ -36,7 +36,7 @@ namespace Izmir
 
 			using (var httpClient = CreateClient ()) {
 				try {
-					var response = await httpClient.GetAsync ("?json=get_posts&date_format=Y-m-d&include=id,title,thumbnail,date,author,content,url,excerpt&count=5&offset=2");
+					var response = await httpClient.GetAsync ("?json=get_posts&date_format=Y-m-d&include=id,title,thumbnail,date,author,content,url,excerpt&count=5");
 					if (response.IsSuccessStatusCode) {
 						var json = await response.Content.ReadAsStringAsync ().ConfigureAwait (false);
 						if (!string.IsNullOrWhiteSpace (json)) {
