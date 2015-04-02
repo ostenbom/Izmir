@@ -148,8 +148,8 @@ namespace Izmir
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				Content = new StackLayout {
 					Children = {iconImage, new StackLayout {
-							Children ={ people , chairLayout, journoLayout, topic, topicLabel, topicbtn},
-							Padding = new Thickness(10, 0, 10, 0)
+							Children ={ topic, topicLabel, topicbtn, people , chairLayout, journoLayout },
+							Padding = new Thickness(10, 10, 10, 0)
 						}},
 					Spacing = 0
 				}

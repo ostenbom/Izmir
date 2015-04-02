@@ -15,7 +15,9 @@ namespace Izmir
 		public App ()
 		{
 
-			var IzmirTabs = new TabbedPage ();
+			var IzmirTabs = new TabbedPage () {
+				BackgroundColor = Color.FromHex("#2190A6")
+			};
 			IzmirTabs.Children.Add (new NavigationPage (new HomePage ()) {Title="Home", Icon = "h.png"});
 			IzmirTabs.Children.Add (new NavigationPage (new CommitteesPage ()) {Title="Committees", Icon = "com.png"});
 			IzmirTabs.Children.Add (new NavigationPage (new SchedulePage ()) {Title="Schedule", Icon = "cal.png"});

@@ -8,6 +8,7 @@ namespace Izmir
 	{
 		public OtherPeopePage ()
 		{
+			Title = "Other People";
 			List<OtherPerson> people = new OtherPeopleData ();
 			var peoplelistview = new ListView {
 				HasUnevenRows = true,

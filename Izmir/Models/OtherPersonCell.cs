@@ -8,8 +8,8 @@ namespace Izmir
 		public OtherPersonCell ()
 		{
 			var thumbnail = new Image {
-				HeightRequest = 50,
-				WidthRequest = 50,
+				HeightRequest = 40,
+				WidthRequest = 40,
 				Aspect = Aspect.AspectFill,
 				HorizontalOptions = LayoutOptions.Center,
 				VerticalOptions = LayoutOptions.Center
@@ -18,14 +18,14 @@ namespace Izmir
 
 			var titleLabel = new Label () {
 				FontFamily = "HelveticaNeue-Medium",
-				FontSize = 18,
+				FontSize = 16,
 				TextColor = Color.Black
 			};
 			titleLabel.SetBinding (Label.TextProperty, "name");
 
 			var dateLabel = new Label () {
 				FontAttributes = FontAttributes.Bold,
-				FontSize = 12,
+				FontSize = 11,
 				TextColor = Color.FromHex ("#666")
 			};
 			dateLabel.SetBinding (Label.TextProperty, "title");
