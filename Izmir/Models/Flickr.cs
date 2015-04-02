@@ -12,6 +12,8 @@ namespace Izmir
 	}
 	public class Flickr
 	{
+		public string id { get; set; }
+
 		public string title { get; set; }
 
 		public string url_q { get; set; }

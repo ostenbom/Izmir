@@ -12,7 +12,7 @@ using Xamarin;
 
 namespace Izmir.Droid
 {
-	[Activity (Label = "Izmir.Droid", Icon = "@drawable/icon", Theme = "@android:style/Theme.Material.Light.DarkActionBar", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity (Label = "Izmir.Droid", Icon = "@drawable/icon", Theme = "@android:style/Theme.Holo.Light.DarkActionBar", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
 	{
 		protected override void OnCreate (Bundle bundle)

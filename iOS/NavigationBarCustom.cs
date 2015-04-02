@@ -10,9 +10,9 @@ using Izmir.iOS;
 
 namespace Izmir
 {
-	public class NavigationBarCustom : NavigationRenderer
+	/*public class NavigationBarCustom : NavigationRenderer
 	{
-		/*protected override void OnElementChanged(VisualElementChangedEventArgs e)
+		protected override void OnElementChanged(VisualElementChangedEventArgs e)
 		{
 			base.OnElementChanged(e);
 
@@ -27,7 +27,7 @@ namespace Izmir
 					System.Diagnostics.Debug.WriteLine ("Navigation Render Exception: {0}", x);
 				}
 			}
-		}*/
+		}
 
 		public NavigationBarCustom()
 		{
@@ -43,5 +43,5 @@ namespace Izmir
 			this.NavigationBar.BarTintColor = UIColor.Cyan;
 			this.NavigationBar.BarStyle = UIBarStyle.Black;
 		}
-	}
+	}*/
 }

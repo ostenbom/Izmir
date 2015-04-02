@@ -8,6 +8,8 @@ namespace Izmir
 {
 	public class HomePage : CarouselPage
 	{
+		StackLayout layout = new StackLayout () {Spacing = 10};
+
 		List<ContentPage> pages = new List<ContentPage> ();
 
 		readonly List<Day> days = new ScheduleData ();
@@ -22,8 +24,6 @@ namespace Izmir
 
 		readonly Label currentevent = new Label () { FontSize = 20, HorizontalOptions = LayoutOptions.Center };
 
-		StackLayout layout = new StackLayout () {Spacing = 0};
-
 		StackLayout postloadlayout = new StackLayout { Orientation = StackOrientation.Horizontal, HorizontalOptions = LayoutOptions.Center };
 
 		StackLayout homepostlayout = new StackLayout { Padding = new Thickness(10, 0, 10 ,0), VerticalOptions = LayoutOptions.FillAndExpand };
@@ -33,6 +33,24 @@ namespace Izmir
 		ListView homelistview;
 
 		ListView postl;
+
+		Grid imagegrid = new Grid {
+			VerticalOptions = LayoutOptions.FillAndExpand,
+			ColumnSpacing = 5,
+			RowSpacing = 5,
+			RowDefinitions = {
+				new RowDefinition { Height = new GridLength(60, GridUnitType.Absolute) },
+				new RowDefinition { Height = new GridLength(60, GridUnitType.Absolute) },
+				new RowDefinition { Height = new GridLength(60, GridUnitType.Absolute) },
+				new RowDefinition { Height = new GridLength(60, GridUnitType.Absolute) }
+			},
+			ColumnDefinitions = {
+				new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+				new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+				new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+				new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }
+			}
+		};
 
 		ActivityIndicator postsloading = new ActivityIndicator
 		{
@@ -74,6 +92,8 @@ namespace Izmir
 
 			layout.Children.Add (postloadlayout);
 
+			layout.Children.Add (imagegrid);
+
 			layout.Children.Add (homepostlayout);
 
 			pages.Add (new ContentPage { Content = new ScrollView () { Content = layout} });
@@ -82,7 +102,7 @@ namespace Izmir
 
 			Init ();
 
-			/* Initimages ();*/
+			/*Initimages ();*/
 
 			homelistview.ItemSelected += (sender, e) => {
 				var selectpost = (Post)e.SelectedItem;
@@ -101,6 +121,7 @@ namespace Izmir
 			int k = 0;
 
 			var viewModel = new PostsViewModel ();
+			var client = new ImageClient ();
 			await viewModel.GetPosts ();
 			var vmposts = viewModel.Posts;
 			if (viewModel.Posts.Count == 0) {
@@ -112,6 +133,7 @@ namespace Izmir
 				k++;
 				i++;
 			}
+				
 
 			homelistview.ItemsSource = homelist;
 
@@ -143,13 +165,100 @@ namespace Izmir
 
 			layout.Children.Remove (postloadlayout);
 
+			try {
+				var images = await client.GetImages ();
+
+				int p = 0;
+				int c = 0;
+				int r = -1;
+
+				foreach (Flickr pic in images) {
+					
+					if ((p%4) == 0){
+						r++;
+					}
+
+					c = (p%4);
+
+					var flickpic = new Image {
+						Aspect = Aspect.AspectFill,
+						Source = ImageSource.FromUri(new Uri(pic.url_q))
+					};
+
+					try {
+						imagegrid.Children.Add (flickpic, r, c);
+					} catch (Exception e ) {
+						System.Diagnostics.Debug.WriteLine ("Add image to grid: {0}", e);
+					}
+
+					p++;
+				}
+			} catch (Exception e) {
+				System.Diagnostics.Debug.WriteLine("Get Images Home Fault: {0}", e);
+			}
+
+
+
 		}
 
-		private async Task Initimages () {
+		/*private async Task Initimages () {
 			var client = new ImageClient ();
 			var images = await client.GetImages ().ConfigureAwait (false);
 
-		}
+			Grid imagegrid = new Grid {
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				ColumnSpacing = 5,
+				RowSpacing = 5,
+				RowDefinitions = {
+					new RowDefinition { Height = new GridLength(60, GridUnitType.Absolute) },
+					new RowDefinition { Height = new GridLength(60, GridUnitType.Absolute) },
+					new RowDefinition { Height = new GridLength(60, GridUnitType.Absolute) },
+					new RowDefinition { Height = new GridLength(60, GridUnitType.Absolute) }
+				},
+				ColumnDefinitions = {
+					new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+					new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+					new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+					new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }
+				}
+			};
+
+			int p = 0;
+			int c = 0;
+			int r = -1;
+
+			foreach (Flickr pic in images) {
+				if ((p%4) == 0){
+					r++;
+				}
+
+				c = (p%4);
+
+				var flickpic = new Image {
+					Aspect = Aspect.AspectFill
+				};
+
+				flickpic.Source = pic.url_q;
+
+				RelativeLayout flicklayout = new RelativeLayout ();
+
+				flicklayout.Children.Add (flickpic,
+					Constraint.Constant (0),
+					Constraint.Constant (0),
+					Constraint.RelativeToParent ((parent) => {
+						return parent.Width;
+					}),
+					Constraint.RelativeToParent ((parent) => {
+						return parent.Height;
+					}));
+
+				imagegrid.Children.Add (flicklayout, r, c);
+			
+				p++;
+			}
+
+			layout.Children.Add (imagegrid);
+		}*/
 
 		bool OnTimeUpdate() {
 			DateTime mytime = new DateTime (2015, 04, 23, 23, 00, 00);

@@ -14,29 +14,13 @@ namespace Izmir
 		public PostClient () {
 		}
 
-		/*public async Task<Post[]> GetPosts () {
-
-			var client = new HttpClient ();
-
-			client.BaseAddress = new Uri("http://www.barcelonaismedia.com/");
-
-			var response = await client.GetAsync("?json=get_posts&date_format=Y-m-d&include=id,title,thumbnail,date,content,url,excerpt&count=10");
-
-			var postJson = response.Content.ReadAsStringAsync().Result;
-
-			var rootobject = JsonConvert.DeserializeObject<Rootobject>(postJson);
-
-			return rootobject.posts;
-
-		}*/
-
 		public async Task<List<Post>> GetPosts ()
 		{ 
 			var rootobject = new Rootobject();
 
 			using (var httpClient = CreateClient ()) {
 				try {
-					var response = await httpClient.GetAsync ("?json=get_posts&date_format=Y-m-d&include=id,title,thumbnail,date,author,content,url,excerpt&count=5");
+					var response = await httpClient.GetAsync ("get_category_posts/?category_id=11&date_format=Y-m-d&include=id,title,thumbnail,date,content,url,excerpt&count=5").ConfigureAwait(false);
 					if (response.IsSuccessStatusCode) {
 						var json = await response.Content.ReadAsStringAsync ().ConfigureAwait (false);
 						if (!string.IsNullOrWhiteSpace (json)) {
@@ -46,7 +30,7 @@ namespace Izmir
 						}
 					}
 				} catch (Exception e) {
-					System.Diagnostics.Debug.WriteLine ("Exception {0}", e);
+					System.Diagnostics.Debug.WriteLine ("Exception Posts Client {0}", e);
 					return null;
 				}
 			}
@@ -54,7 +38,7 @@ namespace Izmir
 			return rootobject.posts.ToList();
 		}
 
-		private const string ApiBaseAddress = "http://media.izmir2015.org/";
+		private const string ApiBaseAddress = "http://media.izmir2015.org/api/";
 		private HttpClient CreateClient ()
 		{
 			var httpClient = new HttpClient 
