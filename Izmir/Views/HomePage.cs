@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace Izmir
 {
@@ -20,6 +21,8 @@ namespace Izmir
 
 		readonly DateTime izmirshowend = new DateTime (2015, 04, 27);
 
+		PostsViewModel viewModel = new PostsViewModel ();
+
 		Image feature = new Image () { Aspect = Aspect.AspectFill };
 
 		readonly Label currentevent = new Label () { FontSize = 20, HorizontalOptions = LayoutOptions.Center };
@@ -33,6 +36,8 @@ namespace Izmir
 		ListView homelistview;
 
 		ListView postl;
+
+		ObservableCollection<Post> vmop;
 
 		Command navigateimageCommand;
 
@@ -109,9 +114,13 @@ namespace Izmir
 
 			this.Children.Add (pages [0]);
 
-			ToolbarItems.Add(new ToolbarItem("Back", "undo.png", async () =>
+			ToolbarItems.Add(new ToolbarItem("Back", "undo.png", () =>
 				{
+					try {
 					CurrentPage = this.Children[0];
+					} catch (Exception e) {
+						System.Diagnostics.Debug.WriteLine("Back Click: {0}", e);
+					}
 				}));
 
 			Init ();
@@ -134,10 +143,11 @@ namespace Izmir
 			int j = 1;
 			int k = 0;
 
-			var viewModel = new PostsViewModel ();
+
 			var client = new ImageClient ();
-			await viewModel.GetPosts ();
+			await viewModel.GetPosts (5, 0);
 			var vmposts = viewModel.Posts;
+			vmop = viewModel.Oposts;
 			if (viewModel.Posts.Count == 0) {
 				vmposts = new SeedData ();
 			}
@@ -151,18 +161,22 @@ namespace Izmir
 				title = "All Posts",
 				date = "",
 				thumbnail = "plus.png"
-			});	
+			});
 
 			homelistview.ItemsSource = homelist;
 
 			homepostlayout.Children.Add (homelistview);
 
-			postl = new ListView {
+			postl = new InfiniteListView {
 				HasUnevenRows = true,
 				ItemTemplate = new DataTemplate(typeof(PostCell)),
-				SeparatorColor = Color.FromHex("#ddd")
+				SeparatorColor = Color.FromHex("#ddd"),
+				LoadMoreCommand = LoadPostsCommand,
+				IsPullToRefreshEnabled = true,
+				RefreshCommand = RefreshPostsCommand,
+				IsRefreshing = IsBusy
 			};
-			postl.ItemsSource = vmposts;
+			postl.ItemsSource = vmop;
 			pages.Add ( new ContentPage {
 				Content = new StackLayout {
 					Children = {postl}
@@ -285,6 +299,65 @@ namespace Izmir
 				currentevent.Text = "Currently in between Events!";
 			}
 			return true;
+		}
+
+		private Command loadPostsCommand;
+
+		public Command LoadPostsCommand
+		{
+			get
+			{
+				return loadPostsCommand ??
+					(loadPostsCommand = new Command(() => { ExecuteLoadPostsCommand(); }));
+			}
+		}
+
+		public async Task ExecuteLoadPostsCommand () {
+			int postcount = viewModel.PostCount.post_count;
+			int count = viewModel._Oposts.Count;
+			int offset = (count - 1);
+			if (count < postcount){
+			await viewModel.GetMorePosts (1,offset);
+			}
+		}
+
+		private bool isReloadBusy;
+		public bool IsBusy
+		{
+			get { return isReloadBusy; }
+			set 
+			{
+				if (isReloadBusy == value)
+					return;
+
+				isReloadBusy = value;
+				OnPropertyChanged ("IsBusy");
+			}
+		}
+
+		private Command refreshPostsCommand;
+
+		public Command RefreshPostsCommand 
+		{
+			get 
+			{ 
+				return refreshPostsCommand ?? (refreshPostsCommand = new Command (ExecuteRefreshPostsCommand, ()=>
+					{
+						return !IsBusy;
+					})); 
+			}
+		}
+
+		private async void ExecuteRefreshPostsCommand ()
+		{
+			if (IsBusy)
+				return;
+
+			vmop.Clear ();
+			await viewModel.GetPosts (5,0);
+
+			this.postl.IsRefreshing = false;
+
 		}
 	}
 }

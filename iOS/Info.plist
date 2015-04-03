@@ -61,5 +61,9 @@
 	<string>İzmir 2015</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.izmir2015</string>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

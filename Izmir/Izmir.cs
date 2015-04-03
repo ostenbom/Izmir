@@ -18,10 +18,10 @@ namespace Izmir
 			var IzmirTabs = new TabbedPage () {
 				BackgroundColor = Color.FromHex("#2190A6")
 			};
-			IzmirTabs.Children.Add (new NavigationPage (new HomePage ()) {Title="Home", Icon = "h.png"});
-			IzmirTabs.Children.Add (new NavigationPage (new CommitteesPage ()) {Title="Committees", Icon = "com.png"});
-			IzmirTabs.Children.Add (new NavigationPage (new SchedulePage ()) {Title="Schedule", Icon = "cal.png"});
-			IzmirTabs.Children.Add (new NavigationPage (new OtherPage ()) {Title="Other", Icon = "m.png"});
+			IzmirTabs.Children.Add (new NavigationPage (new HomePage ()) {Title="Home", Icon = "h.png", BarTextColor = Color.White});
+			IzmirTabs.Children.Add (new NavigationPage (new CommitteesPage ()) {Title="Committees", Icon = "com.png", BarTextColor = Color.White});
+			IzmirTabs.Children.Add (new NavigationPage (new SchedulePage ()) {Title="Schedule", Icon = "cal.png", BarTextColor = Color.White});
+			IzmirTabs.Children.Add (new NavigationPage (new OtherPage ()) {Title="Other", Icon = "m.png", BarTextColor = Color.White});
 
 			MainPage = IzmirTabs;
 		}

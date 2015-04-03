@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using System.Collections.Generic;
 using SQLite.Net.Attributes;
+using Newtonsoft.Json;
 
 namespace Izmir
 {
@@ -20,6 +21,19 @@ namespace Izmir
 
 		public string date { get; set; }
 
+		public DateTime published { 
+			get { 
+				try {
+					DateTime publishtime = DateTime.ParseExact (date, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+
+				return publishtime;
+				} catch (Exception e) {
+					System.Diagnostics.Debug.WriteLine("Date Time Published: {0}", e);
+					return new DateTime(2015, 05, 23);
+				}
+			}
+		}
+
 		public string thumbnail { get; set; }
 
 		/*public List<Author> authors { get; set; }*/
@@ -29,17 +43,6 @@ namespace Izmir
 	{
 		public Post[] posts { get; set; }
 	}
-	/*public class Author {
-		
-		public string first_name { get; set; }
-
-		public string last_name { get; set; }
-
-		public string description { get; set; }
-
-		public string image { get; set; }
-
-	}*/
 }
 
 

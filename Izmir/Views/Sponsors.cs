@@ -9,9 +9,10 @@ namespace Izmir
 		public Sponsors ()
 		{
 			Title = "Sponsors";
-			Content = new StackLayout { 
-				Children = {
-					new Label { Text = "Hello ContentPage" }
+			Content = new ScrollView { Content = new StackLayout { 
+					Children = {
+						new Image { Aspect = Aspect.AspectFill, Source = "sponsors.png" }
+					}
 				}
 			};
 		}

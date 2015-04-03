@@ -6,12 +6,14 @@ using PropertyChanged;
 using SQLite.Net;
 using SQLite.Net.Async;
 using SQLite;
+using System.Collections.ObjectModel;
 
 namespace Izmir
 {
 	[ImplementPropertyChanged]
-	public class PostsViewModel
+	public class PostsViewModel : BaseViewModel
 	{
+		
 		readonly PostsDatabase db;
 
 		public PostsViewModel ()
@@ -21,9 +23,15 @@ namespace Izmir
 
 		public List<Post> Posts { get; set; }
 
-		public async Task GetPosts ()
+		public Category PostCount { get; set; }
+
+		public ObservableCollection<Post> _Oposts = new ObservableCollection<Post> ();
+
+		public ObservableCollection<Post> Oposts { get { return _Oposts; } }
+
+		public async Task GetPosts (int num, int off)
 		{
-			await GetRemotePosts ();
+			await GetRemotePosts (num, off);
 			System.Diagnostics.Debug.WriteLine ("Got Remote Posts");
 			await GetLocalPosts ();
 			System.Diagnostics.Debug.WriteLine ("Got Local Posts");
@@ -32,19 +40,53 @@ namespace Izmir
 		private async Task GetLocalPosts()
 		{
 			var posts = await db.GetPostsAsync ();
-			this.Posts = posts;
+			var orderposts = posts.OrderByDescending (o => o.published);
+			Posts = posts.OrderByDescending(o=>o.published).ToList();
+			foreach (Post p in orderposts){
+				try {
+				_Oposts.Add (p);
+				} catch (Exception e) {
+					System.Diagnostics.Debug.WriteLine ("OC Problem: {0}", e);
+				}
+			}
 			System.Diagnostics.Debug.WriteLine ("Got Each Local Post");
 		}
 
-		private async Task GetRemotePosts()
+		private async Task GetRemotePosts(int num, int off)
 		{
 			var remoteClient = new PostClient ();
-			var posts = await remoteClient.GetPosts ().ConfigureAwait(false);
+			var posts = await remoteClient.GetPosts (num, off).ConfigureAwait(false);
+			this.PostCount = await remoteClient.GetPostCount ().ConfigureAwait (false);
 			System.Diagnostics.Debug.WriteLine ("Getting Somewhere");
 			if(posts != null){
 				await db.SaveAll (posts).ConfigureAwait (false);
 			}
 		}
+
+		public async Task GetMorePosts (int num, int off)
+		{
+			await GetMoreRemotePosts (num, off);
+			System.Diagnostics.Debug.WriteLine ("Got Remote Posts");
+		}
+
+		private async Task GetMoreRemotePosts(int num, int off)
+		{
+			var remoteClient = new PostClient ();
+			var posts = await remoteClient.GetPosts (num, off).ConfigureAwait(false);
+			this.PostCount = await remoteClient.GetPostCount ().ConfigureAwait (false);
+			foreach (Post p in posts){
+				try {
+					_Oposts.Add (p);
+				} catch (Exception e) {
+					System.Diagnostics.Debug.WriteLine ("OC Problem: {0}", e);
+				}
+			}
+			System.Diagnostics.Debug.WriteLine ("Got More Posts!");
+			if(posts != null){
+				await db.SaveAll (posts).ConfigureAwait (false);
+			}
+		}
+
 	}
 }
 
