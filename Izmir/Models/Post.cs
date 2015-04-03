@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using System.Collections.Generic;
 using SQLite.Net.Attributes;
 using Newtonsoft.Json;
+using System.Globalization;
 
 namespace Izmir
 {
@@ -21,10 +22,13 @@ namespace Izmir
 
 		public string date { get; set; }
 
-		public DateTime published { 
+		public string featured { get; set; }
+
+
+		/*public DateTime published { 
 			get { 
 				try {
-					DateTime publishtime = DateTime.ParseExact (date, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+					DateTime publishtime = DateTime.ParseExact (date, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
 
 				return publishtime;
 				} catch (Exception e) {
@@ -33,6 +37,18 @@ namespace Izmir
 				}
 			}
 		}
+
+		public string nicedate {
+			get { 
+				try {
+					var nice = published.ToString("M");
+					return nice;
+				} catch (Exception e) {
+					System.Diagnostics.Debug.WriteLine("Humanize Error: {0}", e);
+					return published.ToString();
+				}
+			}
+		}*/
 
 		public string thumbnail { get; set; }
 

@@ -80,12 +80,6 @@ namespace Izmir
 			});
 
 			this.Add (new OtherPerson () {
-				name = "Arda Berk Sağır",
-				title = "Organiser - Ephesus",
-				image = "ardabe.jpg"
-			});
-
-			this.Add (new OtherPerson () {
 				name = "Barlas Türkyılmaz",
 				title = "Organiser - Ephesus",
 				image = "barlas.jpg"
@@ -107,6 +101,12 @@ namespace Izmir
 				name = "Enescan Karaer",
 				title = "Organiser - Ephesus",
 				image = "enescan.jpg"
+			});
+
+			this.Add (new OtherPerson () {
+				name = "Fatih Seyfi",
+				title = "Organiser - DE",
+				image = "fatih.jpg"
 			});
 
 			this.Add (new OtherPerson () {
@@ -134,12 +134,6 @@ namespace Izmir
 			});
 
 			this.Add (new OtherPerson () {
-				name = "Mert Can",
-				title = "Organiser - Smyrna",
-				image = "mert.jpg"
-			});
-
-			this.Add (new OtherPerson () {
 				name = "Mert Ege Açıkgöz",
 				title = "Organiser - Teos",
 				image = "merte.jpg"
@@ -155,6 +149,12 @@ namespace Izmir
 				name = "Selin Kolbaşı",
 				title = "Organiser - Smyrna",
 				image = "selin.jpg"
+			});
+
+			this.Add (new OtherPerson () {
+				name = "Sophie Duffield",
+				title = "Organiser - UK",
+				image = "sophied.jpg"
 			});
 		}
 	}

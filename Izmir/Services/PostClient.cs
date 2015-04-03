@@ -20,7 +20,7 @@ namespace Izmir
 
 			using (var httpClient = CreateClient ()) {
 				try {
-					string url = "get_category_posts/?category_id=11&include=id,title,thumbnail,date,content,url,excerpt&count=" + num + "&offset=" + off;
+					string url = "?json=get_posts&include=id,title,thumbnail,date,content,url,excerpt&count=" + num + "&offset=" + off;
 					var response = await httpClient.GetAsync (url).ConfigureAwait(false);
 					if (response.IsSuccessStatusCode) {
 						var json = await response.Content.ReadAsStringAsync ().ConfigureAwait (false);
@@ -38,13 +38,13 @@ namespace Izmir
 
 			return rootobject.posts.ToList();
 		}
-		public async Task<Category> GetPostCount ()
+		public async Task<int> GetPostCount ()
 		{ 
 			var rootcategory = new RootCategory();
 
 			using (var httpClient = CreateClient ()) {
 				try {
-					string url = "get_category_posts/?category_id=11&include=id&count=1";
+					string url = "?json=get_posts&include=id&count=1";
 					var response = await httpClient.GetAsync (url).ConfigureAwait(false);
 					if (response.IsSuccessStatusCode) {
 						var json = await response.Content.ReadAsStringAsync ().ConfigureAwait (false);
@@ -56,13 +56,13 @@ namespace Izmir
 					}
 				} catch (Exception e) {
 					System.Diagnostics.Debug.WriteLine ("Exception Posts Client {0}", e);
-					return null;
+					return 0;
 				}
 			}
-			return rootcategory.category;
+			return rootcategory.count_total;
 		}
 
-		private const string ApiBaseAddress = "http://media.izmir2015.org/api/";
+		private const string ApiBaseAddress = "http://media.izmir2015.org/";
 		private HttpClient CreateClient ()
 		{
 			var httpClient = new HttpClient 

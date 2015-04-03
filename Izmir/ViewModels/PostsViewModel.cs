@@ -23,7 +23,7 @@ namespace Izmir
 
 		public List<Post> Posts { get; set; }
 
-		public Category PostCount { get; set; }
+		public int PostCount { get; set; }
 
 		public ObservableCollection<Post> _Oposts = new ObservableCollection<Post> ();
 
@@ -40,8 +40,8 @@ namespace Izmir
 		private async Task GetLocalPosts()
 		{
 			var posts = await db.GetPostsAsync ();
-			var orderposts = posts.OrderByDescending (o => o.published);
-			Posts = posts.OrderByDescending(o=>o.published).ToList();
+			var orderposts = posts.OrderByDescending (o => o.date);
+			Posts = posts.OrderByDescending(o=>o.date).ToList();
 			foreach (Post p in orderposts){
 				try {
 				_Oposts.Add (p);
@@ -72,18 +72,19 @@ namespace Izmir
 		private async Task GetMoreRemotePosts(int num, int off)
 		{
 			var remoteClient = new PostClient ();
-			var posts = await remoteClient.GetPosts (num, off).ConfigureAwait(false);
+			List<Post> remoteposts = null;
+			remoteposts = await remoteClient.GetPosts (num, off).ConfigureAwait(false);
 			this.PostCount = await remoteClient.GetPostCount ().ConfigureAwait (false);
-			foreach (Post p in posts){
+			foreach (Post rp in remoteposts){
 				try {
-					_Oposts.Add (p);
+					_Oposts.Add (rp);
 				} catch (Exception e) {
 					System.Diagnostics.Debug.WriteLine ("OC Problem: {0}", e);
 				}
 			}
 			System.Diagnostics.Debug.WriteLine ("Got More Posts!");
-			if(posts != null){
-				await db.SaveAll (posts).ConfigureAwait (false);
+			if(remoteposts != null){
+				await db.SaveAll (remoteposts).ConfigureAwait (false);
 			}
 		}
 

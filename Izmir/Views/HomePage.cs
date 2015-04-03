@@ -13,7 +13,7 @@ namespace Izmir
 
 		List<ContentPage> pages = new List<ContentPage> ();
 
-		readonly List<Day> days = new ScheduleData ();
+		List<Day> days = new ScheduleData ();
 
 		readonly DateTime izmirstart = new DateTime (2015, 04, 17);
 
@@ -36,6 +36,8 @@ namespace Izmir
 		ListView homelistview;
 
 		ListView postl;
+
+		bool firstsess = false;
 
 		ObservableCollection<Post> vmop;
 
@@ -150,6 +152,8 @@ namespace Izmir
 			vmop = viewModel.Oposts;
 			if (viewModel.Posts.Count == 0) {
 				vmposts = new SeedData ();
+				vmop = new SeedOData ();
+				firstsess = true;
 			}
 			while (i < 7) {
 				pages.Add (new PostView (vmposts[k]));
@@ -260,8 +264,8 @@ namespace Izmir
 
 
 		bool OnTimeUpdate() {
-			DateTime mytime = new DateTime (2015, 04, 23, 23, 00, 00);
-			DateTime now = DateTime.Now;
+			DateTime mytime = new DateTime (2015, 04, 23, 13, 00, 00);
+			DateTime now =  DateTime.Now;
 			DateTime today = DateTime.Today;
 
 			if (now < izmirstart) {
@@ -313,11 +317,10 @@ namespace Izmir
 		}
 
 		public async Task ExecuteLoadPostsCommand () {
-			int postcount = viewModel.PostCount.post_count;
+			int postcount = viewModel.PostCount;
 			int count = viewModel._Oposts.Count;
-			int offset = (count - 1);
 			if (count < postcount){
-			await viewModel.GetMorePosts (1,offset);
+				await viewModel.GetMorePosts (5,count);
 			}
 		}
 
@@ -355,6 +358,10 @@ namespace Izmir
 
 			vmop.Clear ();
 			await viewModel.GetPosts (5,0);
+
+			if (vmop == null) {
+				DisplayAlert ("Almost!", "Please connect to the internet before refreshing again", "Ok");
+			}
 
 			this.postl.IsRefreshing = false;
 

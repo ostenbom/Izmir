@@ -18,16 +18,12 @@ namespace Izmir
 <html>
 <head>
     <link href=""default.css"" rel=""stylesheet"" type=""text/css"">
-
     <title></title>
 </head>
 
 <body class=""single"">
     <div id=""container"">
-        <main class=""singlepage"" id=""main"" itemprop=""mainContentOfPage""
-        itemscope itemtype=""http://schema.org/Blog"" role=""main"">
-            <article class="""">
-                <section class=""entry-content cf""><h1>"+ post.title + "</h1>" + post.excerpt + post.content+"</section>\n            </article>\n        </main>\n    </div>\n</body>";
+		<img src=""" + post.featured + "\" style=\"width:100%;\" /><main class=\"singlepage\" id=\"main\" itemprop=\"mainContentOfPage\" itemscope itemtype=\"http://schema.org/Blog\" role=\"main\"> <article><section class=\"entry-content cf\"><h2>"+ post.title + "</h2>" + post.excerpt + post.content+"</section> </article> </main> </div></body>";
 			if (Device.OS != TargetPlatform.iOS) {
 				// the BaseUrlWebViewRenderer does this for iOS, until bug is fixed
 				source.BaseUrl = DependencyService.Get<IBaseUrl> ().Get ();

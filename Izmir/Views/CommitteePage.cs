@@ -26,7 +26,7 @@ namespace Izmir
 			};
 
 			var chairProfileImage = new CircleImage {
-				BorderColor = Color.Aqua,
+				BorderColor = Color.FromRgb(33, 144, 166),
 				BorderThickness = 2,
 				HeightRequest = 80,
 				WidthRequest = 80,
@@ -72,7 +72,7 @@ namespace Izmir
 			};
 
 			var journoProfileImage = new CircleImage {
-				BorderColor = Color.Aqua,
+				BorderColor = Color.FromRgb(33, 144, 166),
 				BorderThickness = 2,
 				HeightRequest = 80,
 				WidthRequest = 80,

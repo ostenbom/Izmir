@@ -18,6 +18,7 @@ namespace Izmir
 			if (e.OldElement == null) {
 				TabBar.TintColor = UIColor.White;
 				TabBar.BarTintColor = UIColor.FromRGB (33, 144, 166);
+				TabBar.BackgroundColor = UIColor.Magenta;
 			}
 		}
 	}

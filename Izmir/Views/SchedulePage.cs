@@ -77,7 +77,7 @@ namespace Izmir
 				}
 			};
 
-			Device.StartTimer (TimeSpan.FromSeconds(30), OnTimeUpdate);
+			Device.StartTimer (TimeSpan.FromMinutes(2), OnTimeUpdate);
 		}
 
 		bool OnTimeUpdate() {
