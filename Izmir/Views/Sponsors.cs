@@ -11,7 +11,7 @@ namespace Izmir
 			Title = "Sponsors";
 			Content = new ScrollView { Content = new StackLayout { 
 					Children = {
-						new Image { Aspect = Aspect.AspectFill, Source = "sponsors.png" }
+						new Image { Aspect = Aspect.AspectFill, Source = "sponsorstable.png" }
 					}
 				}
 			};
